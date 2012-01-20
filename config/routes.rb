@@ -1,4 +1,6 @@
 Pertukaran::Application.routes.draw do
+  namespace :admin do resources :locations end
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

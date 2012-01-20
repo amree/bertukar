@@ -1,0 +1,21 @@
+%h1 Listing admin_locations
+
+%table
+  %tr
+    %th State
+    %th Nama
+    %th
+    %th
+    %th
+
+  - @admin_locations.each do |admin_location|
+    %tr
+      %td= admin_location.state_id
+      %td= admin_location.nama
+      %td= link_to 'Show', admin_location
+      %td= link_to 'Edit', edit_admin_location_path(admin_location)
+      %td= link_to 'Destroy', admin_location, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Location', new_admin_location_path
