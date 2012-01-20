@@ -5,4 +5,6 @@ class Location < ActiveRecord::Base
   validates :nama, presence: true
   validates :nama, uniqueness: { scope: :state_id }
   validates_presence_of :state, unless: "state_id.nil?"
+
+  auto_strip_attributes :nama, squish: true
 end
