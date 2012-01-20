@@ -11,6 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20120120071330) do
+
+  create_table "admin_locations", :force => true do |t|
+    t.integer  "state_id"
+    t.string   "nama"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
