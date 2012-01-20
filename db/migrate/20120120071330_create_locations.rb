@@ -1,6 +1,6 @@
-class CreateAdminLocations < ActiveRecord::Migration
+class CreateLocations < ActiveRecord::Migration
   def change
-    create_table :admin_locations do |t|
+    create_table :locations do |t|
       t.integer :state_id
       t.string :nama
 
