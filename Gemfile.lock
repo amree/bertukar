@@ -56,6 +56,9 @@ GEM
       thor (~> 0.14.6)
     guard-rspec (0.6.0)
       guard (>= 0.10.0)
+    guard-spork (0.5.1)
+      guard (>= 0.10.0)
+      spork (>= 0.8.4)
     haml (3.1.4)
     haml-rails (0.3.4)
       actionpack (~> 3.0)
@@ -149,6 +152,7 @@ DEPENDENCIES
   factory_girl_rails (~> 1.5.0)
   ffaker (~> 1.12.1)
   guard-rspec (~> 0.6.0)
+  guard-spork (~> 0.5.1)
   haml-rails (~> 0.3.4)
   hirb (~> 0.6.0)
   jquery-rails
