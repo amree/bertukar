@@ -25,4 +25,5 @@ group :test, :development do
   gem "ffaker", "~> 1.12.1"
   gem "database_cleaner", "~> 0.7.1"
   gem "guard-rspec", "~> 0.6.0"
+  gem 'spork', '~> 0.9.0.rc'
 end
