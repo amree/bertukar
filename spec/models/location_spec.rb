@@ -24,4 +24,33 @@ describe Location do
       district.state.should_not be_nil
     end
   end
+
+  describe "validations" do
+    it "should have nama" do
+      @location.nama = nil
+
+      @location.should_not be_valid
+    end
+
+    it "should not have a valid state for a district" do
+      district = Factory(:state_with_district).districts.first
+      district.state_id = 1000
+
+      district.should_not be_valid
+    end
+
+    it "should have unique nama" do
+      @location.save
+      location2 = Factory.build(:location, nama: @location.nama)
+
+      location2.should_not be_valid
+    end
+
+    it "should have unique nama scoped to state" do
+      district1 = Factory(:state_with_district).districts.first
+      district2 = Factory.build(:location, state: district1.state, nama: district1.nama)
+
+      district2.should_not be_valid
+    end
+  end
 end
