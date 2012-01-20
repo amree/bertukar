@@ -49,6 +49,7 @@ module Pertukaran
     config.generators do |g|
       g.template_engine :haml
       g.stylesheets false
+      g.javascripts false
     end
   end
 end
