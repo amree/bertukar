@@ -50,6 +50,7 @@ module Pertukaran
       g.template_engine :haml
       g.stylesheets false
       g.javascripts false
+      g.helper false
     end
   end
 end
