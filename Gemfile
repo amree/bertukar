@@ -4,6 +4,7 @@ gem 'rails', '3.1.3'
 gem 'jquery-rails'
 gem "mysql2", "~> 0.3.11"
 gem "haml-rails", "~> 0.3.4"
+gem "auto_strip_attributes", "~> 2.0.2"
 
 # Gems used only for assets and not required
 # in production environments by default.
