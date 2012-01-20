@@ -54,6 +54,11 @@ module Pertukaran
       g.stylesheets false
       g.javascripts false
       g.helper false
+      g.test_framework :rspec,
+        :fixture       => true,
+        :view_specs    => false,
+        :request_specs => false,
+        :routing_specs => false
     end
   end
 end
