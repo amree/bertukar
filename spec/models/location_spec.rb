@@ -53,7 +53,7 @@ describe Location do
       district2.should_not be_valid
     end
 
-    it "should not destroy state with district", focus: true do
+    it "should not destroy state with district" do
       state = Factory(:state_with_district)
 
       expect {
