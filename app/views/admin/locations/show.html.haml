@@ -2,11 +2,11 @@
 
 %p
   %b State:
-  = @admin_location.state_id
+  = @location.state_id
 %p
   %b Nama:
-  = @admin_location.nama
+  = @location.nama
 
-= link_to 'Edit', edit_admin_location_path(@admin_location)
+= link_to 'Edit', edit_admin_location_path(@location)
 \|
 = link_to 'Back', admin_locations_path

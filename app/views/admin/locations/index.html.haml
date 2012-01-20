@@ -8,13 +8,13 @@
     %th
     %th
 
-  - @admin_locations.each do |admin_location|
+  - @locations.each do |location|
     %tr
-      %td= admin_location.state_id
-      %td= admin_location.nama
-      %td= link_to 'Show', admin_location
-      %td= link_to 'Edit', edit_admin_location_path(admin_location)
-      %td= link_to 'Destroy', admin_location, :confirm => 'Are you sure?', :method => :delete
+      %td= location.state_id
+      %td= location.nama
+      %td= link_to 'Show', [:admin, location]
+      %td= link_to 'Edit', edit_admin_location_path(location)
+      %td= link_to 'Destroy', [:admin, location], :confirm => 'Are you sure?', :method => :delete
 
 %br
 

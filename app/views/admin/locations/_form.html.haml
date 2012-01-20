@@ -1,9 +1,9 @@
-= form_for @admin_location do |f|
-  -if @admin_location.errors.any?
+= form_for [:admin, @location] do |f|
+  -if @location.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@admin_location.errors.count, "error")} prohibited this admin_location from being saved:"
+      %h2= "#{pluralize(@location.errors.count, "error")} prohibited this location from being saved:"
       %ul
-        - @admin_location.errors.full_messages.each do |msg|
+        - @location.errors.full_messages.each do |msg|
           %li= msg
 
   .field
