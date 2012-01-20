@@ -48,6 +48,7 @@ module Pertukaran
     # http://guides.rubyonrails.org/configuring.html#configuring-generators
     config.generators do |g|
       g.template_engine :haml
+      g.stylesheets false
     end
   end
 end
