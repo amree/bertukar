@@ -14,6 +14,7 @@ end
 
 group :development do
   gem "routes", "~> 0.1.4"
+  gem "awesome_print", "~> 1.0.2"
 end
 
 group :test do
