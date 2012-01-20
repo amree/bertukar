@@ -24,4 +24,5 @@ group :test, :development do
   gem "factory_girl_rails", "~> 1.5.0"
   gem "ffaker", "~> 1.12.1"
   gem "database_cleaner", "~> 0.7.1"
+  gem "guard-rspec", "~> 0.6.0"
 end
