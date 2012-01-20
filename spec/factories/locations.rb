@@ -5,7 +5,7 @@ FactoryGirl.define do
     sequence(:nama) { Faker::Name.name }
   end
 
-  factory :location_with_state, parent: :location do
+  factory :state_with_district, parent: :location do
     after_create { |location|
       location.districts.build
       location.districts[0] = Factory(:location, state: location)
