@@ -38,6 +38,12 @@ Spork.prefork do
     # rspec-rails.
     config.infer_base_class_for_anonymous_controllers = false
 
+    # Whenever we add a :focus tag to a given spec only that spec will be run instead of all of them
+    # Ref: http://railscasts.com/episodes/285-spork?view=asciicast
+    config.treat_symbols_as_metadata_keys_with_true_values = true
+    config.filter_run :focus => true
+    config.run_all_when_everything_filtered = true
+
     # Database Cleaner
     config.before(:suite) do
       DatabaseCleaner.strategy = :transaction
