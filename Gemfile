@@ -12,6 +12,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :development do
+  gem "routes", "~> 0.1.4"
+end
+
 group :test do
   # Pretty printed test output
   gem 'turn', '~> 0.8.3', :require => false
