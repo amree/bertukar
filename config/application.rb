@@ -45,6 +45,9 @@ module Pertukaran
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
+    # Disable field_with_errors
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| "#{html_tag}".html_safe }
+
     # http://guides.rubyonrails.org/configuring.html#configuring-generators
     config.generators do |g|
       g.template_engine :haml
