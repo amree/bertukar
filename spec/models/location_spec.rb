@@ -52,5 +52,13 @@ describe Location do
 
       district2.should_not be_valid
     end
+
+    it "should not destroy state with district", focus: true do
+      state = Factory(:state_with_district)
+
+      expect {
+        state.destroy
+      }.to change(Location, :count).by(0)
+    end
   end
 end
