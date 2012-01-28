@@ -3,6 +3,10 @@ class Location < ActiveRecord::Base
   has_many :districts, class_name: "Location", foreign_key: :state_id
   has_many :jobs
 
+  default_scope order(:nama)
+  scope :states, where("state_id IS NULL")
+  scope :districts, where("state_id IS NOT NULL")
+
   validates :nama, presence: true
   validates :nama, uniqueness: { scope: :state_id }
   validates_presence_of :state, unless: "state_id.nil?"
