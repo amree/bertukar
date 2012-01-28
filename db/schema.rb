@@ -16,8 +16,8 @@ ActiveRecord::Schema.define(:version => 20120128010830) do
   create_table "jobs", :force => true do |t|
     t.integer  "user_id"
     t.integer  "location_id"
+    t.integer  "position_id"
     t.string   "jenis"
-    t.string   "skim"
     t.integer  "gred"
     t.text     "nota"
     t.string   "nama_organisasi"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20120128010830) do
   end
 
   add_index "jobs", ["location_id"], :name => "index_jobs_on_location_id"
+  add_index "jobs", ["position_id"], :name => "index_jobs_on_position_id"
   add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"
 
   create_table "locations", :force => true do |t|
