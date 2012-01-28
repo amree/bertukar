@@ -1,9 +1,9 @@
-= form_for @admin_title do |f|
-  -if @admin_title.errors.any?
+= form_for [:admin, @title] do |f|
+  -if @title.errors.any?
     #error_explanation
-      %h2= "#{pluralize(@admin_title.errors.count, "error")} prohibited this admin_title from being saved:"
+      %h2= "#{pluralize(@title.errors.count, "error")} prohibited this title from being saved:"
       %ul
-        - @admin_title.errors.full_messages.each do |msg|
+        - @title.errors.full_messages.each do |msg|
           %li= msg
 
   .field
