@@ -1,0 +1,35 @@
+%h1 Listing jobs
+
+%table
+  %tr
+    %th User
+    %th Location
+    %th Jenis
+    %th Skim
+    %th Gred
+    %th Nota
+    %th Nama organisasi
+    %th Expired at
+    %th Closed at
+    %th
+    %th
+    %th
+
+  - @jobs.each do |job|
+    %tr
+      %td= job.user
+      %td= job.location
+      %td= job.jenis
+      %td= job.skim
+      %td= job.gred
+      %td= job.nota
+      %td= job.nama_organisasi
+      %td= job.expired_at
+      %td= job.closed_at
+      %td= link_to 'Show', job
+      %td= link_to 'Edit', edit_job_path(job)
+      %td= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Job', new_job_path

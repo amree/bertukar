@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @job.user
+%p
+  %b Location:
+  = @job.location
+%p
+  %b Jenis:
+  = @job.jenis
+%p
+  %b Skim:
+  = @job.skim
+%p
+  %b Gred:
+  = @job.gred
+%p
+  %b Nota:
+  = @job.nota
+%p
+  %b Nama organisasi:
+  = @job.nama_organisasi
+%p
+  %b Expired at:
+  = @job.expired_at
+%p
+  %b Closed at:
+  = @job.closed_at
+
+= link_to 'Edit', edit_job_path(@job)
+\|
+= link_to 'Back', jobs_path
