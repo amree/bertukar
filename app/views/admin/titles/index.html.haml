@@ -1,0 +1,19 @@
+%h1 Listing admin_titles
+
+%table
+  %tr
+    %th Nama
+    %th
+    %th
+    %th
+
+  - @admin_titles.each do |admin_title|
+    %tr
+      %td= admin_title.nama
+      %td= link_to 'Show', admin_title
+      %td= link_to 'Edit', edit_admin_title_path(admin_title)
+      %td= link_to 'Destroy', admin_title, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Title', new_admin_title_path

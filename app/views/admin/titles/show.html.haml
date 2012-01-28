@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Nama:
+  = @admin_title.nama
+
+= link_to 'Edit', edit_admin_title_path(@admin_title)
+\|
+= link_to 'Back', admin_titles_path

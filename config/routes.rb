@@ -1,5 +1,7 @@
 Pertukaran::Application.routes.draw do
 
+  namespace :admin do resources :titles end
+
   resources :jobs
 
   devise_for :users
