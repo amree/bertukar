@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120128142351) do
+ActiveRecord::Schema.define(:version => 20120128145852) do
 
   create_table "jobs", :force => true do |t|
     t.integer  "user_id"
@@ -40,9 +40,12 @@ ActiveRecord::Schema.define(:version => 20120128142351) do
 
   create_table "titles", :force => true do |t|
     t.string   "nama"
+    t.string   "skim"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  add_index "titles", ["nama"], :name => "index_titles_on_nama", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email",                                 :default => "", :null => false

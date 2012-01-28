@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Admin::TitlesController, focus: true do
+describe Admin::TitlesController do
 
   # This should return the minimal set of attributes required to create a valid
   # Title As you add validations to Title, be sure to

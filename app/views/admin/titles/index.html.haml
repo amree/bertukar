@@ -3,6 +3,7 @@
 %table
   %tr
     %th Nama
+    %th Skim
     %th
     %th
     %th
@@ -10,6 +11,7 @@
   - @titles.each do |title|
     %tr
       %td= title.nama
+      %td= title.skim
       %td= link_to 'Show', [:admin, title]
       %td= link_to 'Edit', edit_admin_title_path(title)
       %td= link_to 'Destroy', [:admin, title], :confirm => 'Are you sure?', :method => :delete

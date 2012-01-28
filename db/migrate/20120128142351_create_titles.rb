@@ -5,5 +5,7 @@ class CreateTitles < ActiveRecord::Migration
 
       t.timestamps
     end
+
+    add_index :titles, :nama, unique: true
   end
 end

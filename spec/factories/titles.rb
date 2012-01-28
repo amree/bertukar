@@ -3,5 +3,6 @@
 FactoryGirl.define do
   factory :title do
     sequence(:nama) { Faker::Name.name }
+    sequence(:skim) { Faker::Name.name }
   end
 end
