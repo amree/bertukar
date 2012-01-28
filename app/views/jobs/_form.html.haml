@@ -7,8 +7,11 @@
           %li= msg
 
   .field
-    = f.label :location
-    = f.text_field :location_id
+    = f.label :location, "Negeri"
+    = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, {id: "job_state_id"}
+  .field
+    = f.label :location, "Daerah"
+    = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama
   .field
     = f.label :jenis
     = f.text_field :jenis
