@@ -13,8 +13,8 @@
     = f.label :location, "Daerah"
     = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama
   .field
-    = f.label :jenis
-    = f.text_field :jenis
+    = f.label :jenis, "Jenis jawatan"
+    = f.select :jenis, Job::JENIS
   .field
     = f.label :skim
     = f.text_field :skim

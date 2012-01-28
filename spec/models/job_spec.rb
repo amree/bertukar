@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Job do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it "should have 2 jenis" do
+    Job::JENIS.count.should eq(2)
+  end
 end
