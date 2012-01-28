@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :title do
-    nama "MyString"
+    sequence(:nama) { Faker::Name.name }
   end
 end
