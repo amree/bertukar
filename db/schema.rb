@@ -11,7 +11,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120120154430) do
+ActiveRecord::Schema.define(:version => 20120128010830) do
+
+  create_table "jobs", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "location_id"
+    t.string   "jenis"
+    t.string   "skim"
+    t.integer  "gred"
+    t.text     "nota"
+    t.string   "nama_organisasi"
+    t.datetime "expired_at"
+    t.datetime "closed_at"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "jobs", ["location_id"], :name => "index_jobs_on_location_id"
+  add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"
 
   create_table "locations", :force => true do |t|
     t.integer  "state_id"
