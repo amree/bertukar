@@ -33,6 +33,12 @@ describe Title do
 
         @title.should_not be_valid
       end
+
+      it "should not be more than 2 letters" do
+        @title.skim = "abcde"
+
+        @title.should_not be_valid
+      end
     end
   end
 end
