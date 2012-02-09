@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Nama:
+  = @ministry.nama
+%p
+  %b Is aktif:
+  = @ministry.is_aktif
+
+= link_to 'Edit', edit_admin_ministry_path(@ministry)
+\|
+= link_to 'Back', admin_ministries_path

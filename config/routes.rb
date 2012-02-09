@@ -6,6 +6,7 @@ Pertukaran::Application.routes.draw do
 
   namespace :admin do
     resources :locations
+    resources :ministries
     resources :titles
   end
 

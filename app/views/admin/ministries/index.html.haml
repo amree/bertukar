@@ -1,0 +1,21 @@
+%h1 Listing ministries
+
+%table
+  %tr
+    %th Nama
+    %th Is aktif
+    %th
+    %th
+    %th
+
+  - @ministries.each do |ministry|
+    %tr
+      %td= ministry.nama
+      %td= ministry.is_aktif
+      %td= link_to 'Show', [:admin, ministry]
+      %td= link_to 'Edit', edit_admin_ministry_path(ministry)
+      %td= link_to 'Destroy', [:admin, ministry], :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Ministry', new_admin_ministry_path

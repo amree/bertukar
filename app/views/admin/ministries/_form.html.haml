@@ -1,0 +1,16 @@
+= form_for [:admin, @ministry] do |f|
+  -if @ministry.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@ministry.errors.count, "error")} prohibited this ministry from being saved:"
+      %ul
+        - @ministry.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :nama
+    = f.text_field :nama
+  .field
+    = f.label :is_aktif
+    = f.check_box :is_aktif
+  .actions
+    = f.submit 'Save'
