@@ -19,6 +19,13 @@ describe Title do
 
         title2.should_not be_valid
       end
+
+      it "should save in titleize" do
+        @title.nama = "ini adalah nama"
+        @title.save
+
+        @title.nama.should == "Ini Adalah Nama"
+      end
     end
 
     describe "skim" do
@@ -38,6 +45,13 @@ describe Title do
         @title.skim = "abcde"
 
         @title.should_not be_valid
+      end
+
+      it "should save in upcase" do
+        @title.skim = "ab"
+        @title.save
+
+        @title.skim.should == "AB"
       end
     end
   end

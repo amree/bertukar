@@ -25,4 +25,11 @@ describe Ministry do
   it "should default to aktif" do
     @ministry.is_aktif.should == true
   end
+
+  it "should save nama in titleize" do
+    @ministry.nama = "this is the name"
+    @ministry.save
+
+    @ministry.nama.should == "This Is The Name"
+  end
 end
