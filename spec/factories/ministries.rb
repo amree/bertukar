@@ -2,7 +2,6 @@
 
 FactoryGirl.define do
   factory :ministry do
-    nama "MyString"
-    is_aktif false
+    sequence(:nama) { Faker::Name.name }
   end
 end
