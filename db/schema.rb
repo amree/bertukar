@@ -11,24 +11,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120209234230) do
+ActiveRecord::Schema.define(:version => 20120210004238) do
 
   create_table "jobs", :force => true do |t|
+    t.integer  "current_job_id"
     t.integer  "user_id"
     t.integer  "location_id"
-    t.integer  "position_id"
-    t.string   "jenis"
+    t.integer  "title_id"
+    t.integer  "ministry_id"
     t.integer  "gred"
     t.text     "nota"
     t.string   "nama_organisasi"
     t.datetime "expired_at"
     t.datetime "closed_at"
+    t.boolean  "is_exchange"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end
 
   add_index "jobs", ["location_id"], :name => "index_jobs_on_location_id"
-  add_index "jobs", ["position_id"], :name => "index_jobs_on_position_id"
+  add_index "jobs", ["title_id"], :name => "index_jobs_on_position_id"
   add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"
 
   create_table "locations", :force => true do |t|
