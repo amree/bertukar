@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120210004238) do
+ActiveRecord::Schema.define(:version => 20120213105111) do
 
   create_table "jobs", :force => true do |t|
-    t.integer  "current_job_id"
+    t.integer  "job_id"
     t.integer  "user_id"
     t.integer  "location_id"
     t.integer  "title_id"
@@ -29,15 +29,11 @@ ActiveRecord::Schema.define(:version => 20120210004238) do
     t.datetime "updated_at",      :null => false
   end
 
-  add_index "jobs", ["location_id"], :name => "index_jobs_on_location_id"
-  add_index "jobs", ["title_id"], :name => "index_jobs_on_position_id"
-  add_index "jobs", ["user_id"], :name => "index_jobs_on_user_id"
-
   create_table "locations", :force => true do |t|
     t.integer  "state_id"
     t.string   "nama"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "ministries", :force => true do |t|
@@ -67,8 +63,8 @@ ActiveRecord::Schema.define(:version => 20120210004238) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",                                            :null => false
+    t.datetime "updated_at",                                            :null => false
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
