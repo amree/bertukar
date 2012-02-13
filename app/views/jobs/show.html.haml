@@ -7,11 +7,11 @@
   %b Location:
   = @job.location_id
 %p
-  %b Jenis:
-  = @job.jenis
+  %b Title:
+  = @job.title_id
 %p
-  %b Skim:
-  = @job.skim
+  %b Ministry:
+  = @job.ministry_id
 %p
   %b Gred:
   = @job.gred
@@ -19,14 +19,14 @@
   %b Nota:
   = @job.nota
 %p
-  %b Nama organisasi:
+  %b Nama Organisasi:
   = @job.nama_organisasi
 %p
   %b Expired at:
   = @job.expired_at
 %p
-  %b Closed at:
-  = @job.closed_at
+  %b Is Exchange:
+  = @job.is_exchange
 
 = link_to 'Edit', edit_job_path(@job)
 \|

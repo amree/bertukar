@@ -1,5 +1,5 @@
 = form_for @job do |f|
-  -if @job.errors.any?
+  - if @job.errors.any?
     #error_explanation
       %h2= "#{pluralize(@job.errors.count, "error")} prohibited this job from being saved:"
       %ul
@@ -7,20 +7,20 @@
           %li= msg
 
   .field
-    = f.label :location, "Negeri"
+    = f.label :location_id, "Negeri"
     = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, {id: "job_state_id"}
   .field
-    = f.label :location, "Daerah"
+    = f.label :location_id, "Daerah"
     = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama
   .field
-    = f.label :jenis, "Jenis jawatan"
-    = f.select :jenis, Job::JENIS
+    = f.label :title_id, "Jawatan"
+    = f.collection_select :title_id, Title.all, :id, :nama
   .field
-    = f.label :skim
-    = f.text_field :skim
+    = f.label :ministry_id, "Kementerian"
+    = f.collection_select :ministry_id, Ministry.all, :id, :nama
   .field
     = f.label :gred
-    = f.number_field :gred
+    = f.text_field :gred
   .field
     = f.label :nota
     = f.text_area :nota
@@ -31,7 +31,6 @@
     = f.label :expired_at
     = f.datetime_select :expired_at
   .field
-    = f.label :closed_at
-    = f.datetime_select :closed_at
+    = f.hidden_field :is_exchange, value: false
   .actions
     = f.submit 'Save'
