@@ -31,7 +31,7 @@ class Job < ActiveRecord::Base
   protected
 
   def expiration_time_should_not_be_in_the_past
-    if Time.now > expired_at
+    if expired_at < Time.now
       errors.add(:expired_at, "can't be in the past")
     end
   end
