@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(:version => 20120213105111) do
     t.string   "nama_organisasi"
     t.datetime "expired_at"
     t.datetime "closed_at"
-    t.boolean  "is_exchange"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.boolean  "is_exchange",     :default => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
   end
 
   create_table "locations", :force => true do |t|
