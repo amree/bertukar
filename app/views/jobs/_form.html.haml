@@ -30,8 +30,6 @@
   .field
     = f.label :expired_at
     = f.date_select :expired_at
-  .field
-    = f.hidden_field :is_exchange, value: false
 
   #next-jobs
     = f.fields_for :next_jobs do |next_job_form|
