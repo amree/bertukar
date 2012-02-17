@@ -1,5 +1,3 @@
-%h2 Exchange
-
 = form_for @job do |f|
   - if @job.errors.any?
     #error_explanation
@@ -9,52 +7,11 @@
           %li= msg
 
   .field
-    = f.label :location_id, "Negeri"
-    = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, {class: "job_state_id", id: "job_state_id"}
-    = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, {}, {class: "job_location_id"}
+    = f.label :is_exchange, "Jenis"
+    = f.select :is_exchange, { "Tawaran" => false, "Pertukaran" => true }
   .field
-    = f.label :title_id, "Jawatan"
-    = f.collection_select :title_id, Title.all, :id, :nama
-  .field
-    = f.label :ministry_id, "Kementerian"
-    = f.collection_select :ministry_id, Ministry.all, :id, :nama
-  .field
-    = f.label :gred
-    = f.text_field :gred
-  .field
-    = f.label :nota
-    = f.text_area :nota
-  .field
-    = f.label :nama_organisasi
-    = f.text_field :nama_organisasi
-  .field
-    = f.label :expired_at
-    = f.date_select :expired_at
-  .field
-    = f.hidden_field :is_exchange, value: true
-
-  #next-jobs
-    = f.fields_for :next_jobs do |next_job_form|
-      = render 'next_job', f: next_job_form
-    = link_to_add_association 'add next job', f, :next_jobs
-
-  .actions
-    = f.submit 'Save'
-
-%h2 Tawaran
-
-= form_for @job do |f|
-  - if @job.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@job.errors.count, "error")} prohibited this job from being saved:"
-      %ul
-        - @job.errors.full_messages.each do |msg|
-          %li= msg
-
-  .field
-    = f.label :location_id, "Negeri"
-    = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, {class: "job_state_id", id: "job_state_id"}
-    = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, {}, {class: "job_location_id"}
+    = f.label :location_id, "Lokasi"
+    = render 'location_fields', f: f
   .field
     = f.label :title_id, "Jawatan"
     = f.collection_select :title_id, Title.all, :id, :nama
@@ -75,5 +32,11 @@
     = f.date_select :expired_at
   .field
     = f.hidden_field :is_exchange, value: false
+
+  #next-jobs
+    = f.fields_for :next_jobs do |next_job_form|
+      = render 'next_job', f: next_job_form
+    = link_to_add_association 'add next job', f, :next_jobs
+
   .actions
     = f.submit 'Save'

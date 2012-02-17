@@ -1,5 +1,4 @@
 .nested-fields
   %hr
-  = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, {class: "job_state_id", id: "job_state_id"}
-  = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, {}, {class: "job_location_id"}
+  = render 'location_fields', f: f
   = link_to_remove_association "remove next job", f
