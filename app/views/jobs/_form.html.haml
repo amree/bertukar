@@ -33,7 +33,7 @@
 
   #next-jobs
     = f.fields_for :next_jobs do |next_job_form|
-      = render 'next_job', f: next_job_form
+      = render 'next_job_fields', f: next_job_form
     = link_to_add_association 'add next job', f, :next_jobs
 
   .actions
