@@ -5,6 +5,7 @@ class UpdateJobs < ActiveRecord::Migration
     add_column    :jobs, :job_id, :integer, after: :id
     remove_column :jobs, :jenis
     add_column    :jobs, :is_exchange, :boolean, after: :closed_at
+    change_column :jobs, :gred, :string
   end
 
   def down
@@ -13,5 +14,6 @@ class UpdateJobs < ActiveRecord::Migration
     remove_column :jobs, :job_id
     add_column    :jobs, :jenis, :string
     remove_column :jobs, :is_exchange
+    change_column :jobs, :gred, :integer
   end
 end

@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20120213105111) do
     t.integer  "location_id"
     t.integer  "title_id"
     t.integer  "ministry_id"
-    t.integer  "gred"
+    t.string   "gred"
     t.text     "nota"
     t.string   "nama_organisasi"
     t.datetime "expired_at"
