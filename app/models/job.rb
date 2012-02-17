@@ -9,7 +9,6 @@ class Job < ActiveRecord::Base
   accepts_nested_attributes_for :next_jobs, reject_if: :all_blank, allow_destroy: true
 
   attr_accessor :is_next_job
-  attr_accessible :is_next_job
 
   before_validation :populate_fields
 
@@ -17,7 +16,6 @@ class Job < ActiveRecord::Base
   validates_presence_of :location
   validates_presence_of :title
   validates_presence_of :ministry, if: :is_not_next_job?
-  # validates_presence_of :ministry, unless: "#{is_next_job?}"
 
   validates :gred, presence: true
   validates :expired_at, presence: true
