@@ -7,6 +7,7 @@ gem "haml-rails", "~> 0.3.4"
 gem "auto_strip_attributes", "~> 2.0.2"
 gem "devise", "~> 1.5.3"
 gem 'thin'
+gem 'cocoon'
 
 # Gems used only for assets and not required
 # in production environments by default.
