@@ -18,7 +18,8 @@ class Job < ActiveRecord::Base
   validates_presence_of :ministry, if: :is_not_next_job?
 
   validates :gred, presence: true
-  validates :gred, format: { with: /[0-9]-[0-9]/, message: "hanya format SBPA yang dibenarkan, contoh 3-1" }
+  validates :gred, format: { with: /[0-9]-[0-9]/, message: "hanya format SBPA yang dibenarkan, contoh 3-1" },
+                   unless: "gred.blank?"
   validates :expired_at, presence: true
   validates :nama_organisasi, presence: true, if: :is_not_next_job?
 
@@ -33,7 +34,7 @@ class Job < ActiveRecord::Base
 
   def verify_expired_at
     if expired_at < Time.now
-      errors.add(:expired_at, "can't be in the past")
+      errors.add(:expired_at, "must at least expired tomorrow")
     end
 
     if expired_at > Time.now + 6.months
