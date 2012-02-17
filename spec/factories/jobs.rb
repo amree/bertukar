@@ -2,14 +2,13 @@
 
 FactoryGirl.define do
   factory :job do
-    user ""
-    location ""
-    jenis "MyString"
-    skim "MyString"
-    gred 1
-    nota "MyText"
-    nama_organisasi "MyString"
-    expired_at "2012-01-28 09:08:30"
-    closed_at "2012-01-28 09:08:30"
+    association     :user
+    association     :location
+    association     :title
+    association     :ministry
+    gred            "1-1"
+    is_exchange     false
+    sequence(:nama_organisasi)  { Faker::Name.name }
+    sequence(:expired_at)       { Time.now + 12.months }
   end
 end
