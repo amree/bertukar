@@ -42,6 +42,12 @@ describe Job do
 
         @job.should_not be_valid
       end
+
+      it "should fail without the correct gred's format" do
+        @job.gred = "F41"
+
+        @job.should_not be_valid
+      end
     end
   end
 

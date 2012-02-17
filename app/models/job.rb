@@ -18,6 +18,7 @@ class Job < ActiveRecord::Base
   validates_presence_of :ministry, if: :is_not_next_job?
 
   validates :gred, presence: true
+  validates :gred, format: { with: /[0-9]-[0-9]/, message: "hanya format SBPA yang dibenarkan, contoh 3-1" }
   validates :expired_at, presence: true
   validates :nama_organisasi, presence: true, if: :is_not_next_job?
 
