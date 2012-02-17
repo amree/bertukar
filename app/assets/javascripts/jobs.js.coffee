@@ -1,13 +1,23 @@
-jQuery ->
-  $('#job_location_id').parent().hide()
-  states = $('#job_location_id').html()
-  $('#job_state_id').change ->
-    state = $('#job_state_id :selected').text()
-    escaped_country = state.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
-    options = $(states).filter("optgroup[label='#{escaped_country}']").html()
-    if options
-      $('#job_location_id').html(options)
-      $('#job_location_id').parent().show()
-    else
-      $('#job_location_id').empty()
-      $('#job_location_id').parent().hide()
+$ ->
+  setupLoc = ->
+    $('.job_location_id').each ->
+      loc = $(this)
+
+      if $(loc).prev().val() == ""
+        $(loc).hide()
+        states = $(loc).html()
+        $(loc).prev().change ->
+          state = $(loc).prev().find(':selected').text()
+          escaped_state = state.replace(/([ #;&,.+*~\':"!^$[\]()=>|\/@])/g, '\\$1')
+          options = $(states).filter("optgroup[label='#{escaped_state}']").html()
+          if options
+            $(loc).html(options)
+            $(loc).show()
+          else
+            $(loc).empty()
+            $(loc).hide()
+
+  $("#next-jobs").bind "insertion-callback", ->
+    setupLoc()
+
+  setupLoc()

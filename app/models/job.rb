@@ -4,4 +4,6 @@ class Job < ActiveRecord::Base
   belongs_to :user
   belongs_to :location
   belongs_to :title
+
+  accepts_nested_attributes_for :next_jobs, reject_if: :all_blank, allow_destroy: true
 end
