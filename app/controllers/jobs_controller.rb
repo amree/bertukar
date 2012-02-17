@@ -11,7 +11,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = Job.new
+    @job = Job.new(expired_at: Time.now + 6.months)
   end
 
   # GET /jobs/1/edit
