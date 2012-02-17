@@ -22,7 +22,7 @@ class Job < ActiveRecord::Base
   validates :expired_at, presence: true
   validates :nama_organisasi, presence: true, if: :is_not_next_job?
 
-  validate :expiration_time_should_not_be_in_the_past, unless: "expired_at.nil?"
+  validate :verify_expired_at, unless: "expired_at.nil?"
   validate :current_job_should_be_blank_for_non_exchange, unless: "is_exchange?"
 
   def is_not_next_job?
@@ -31,9 +31,13 @@ class Job < ActiveRecord::Base
 
   protected
 
-  def expiration_time_should_not_be_in_the_past
+  def verify_expired_at
     if expired_at < Time.now
       errors.add(:expired_at, "can't be in the past")
+    end
+
+    if expired_at > Time.now + 6.months
+      errors.add(:expired_at, "maximum is within 6 months from now")
     end
   end
 

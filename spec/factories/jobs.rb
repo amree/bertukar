@@ -9,6 +9,6 @@ FactoryGirl.define do
     gred            "1-1"
     is_exchange     false
     sequence(:nama_organisasi)  { Faker::Name.name }
-    sequence(:expired_at)       { Time.now + 12.months }
+    sequence(:expired_at)       { Time.now + 6.months }
   end
 end
