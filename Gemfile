@@ -2,12 +2,12 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.2.1'
 gem 'jquery-rails'
-gem "mysql2", "~> 0.3.11"
-gem "haml-rails", "~> 0.3.4"
-gem "auto_strip_attributes", "~> 2.0.2"
-gem "devise", "~> 1.5.3"
+gem 'mysql2', '~> 0.3.11'
+gem 'haml-rails', '~> 0.3.4'
+gem 'auto_strip_attributes', '~> 2.0.2'
+gem 'devise', '~> 1.5.3'
 gem 'thin'
-gem 'cocoon'
+gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -18,17 +18,17 @@ group :assets do
 end
 
 group :development do
-  gem "routes", "~> 0.1.4"
-  gem "awesome_print", "~> 1.0.2"
-  gem "hirb", "~> 0.6.0"
+  gem 'routes', '~> 0.1.4'
+  gem 'awesome_print', '~> 1.0.2'
+  gem 'hirb', '~> 0.6.0'
 end
 
 group :test, :development do
-  gem "rspec-rails", "~> 2.8.1"
-  gem "factory_girl_rails", "~> 1.5.0"
-  gem "ffaker", "~> 1.12.1"
-  gem "database_cleaner", "~> 0.7.1"
-  gem "guard-rspec", "~> 0.6.0"
-  gem "guard-spork", "~> 0.5.1"
+  gem 'rspec-rails', '~> 2.8.1'
+  gem 'factory_girl_rails', '~> 1.5.0'
+  gem 'ffaker', '~> 1.12.1'
+  gem 'database_cleaner', '~> 0.7.1'
+  gem 'guard-rspec', '~> 0.6.0'
+  gem 'guard-spork', '~> 0.5.1'
   gem 'spork', '~> 0.9.0.rc'
 end
