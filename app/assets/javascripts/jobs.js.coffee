@@ -23,12 +23,19 @@ $ ->
     else
       $("#next-jobs").hide()
 
+  ## Some hooks
+
+  # Add another link pointing to the real link (till i know how to hook an event after the insertion)
   # Rerun setupLoc() everytime user add new nested element
-  $(".add_nested_fields").bind "click", ->
+  $("#add-next-job").bind "click", ->
+    $('.add_nested_fields').click()
     setupLoc()
 
+  # Show/hide based on job's type
   $("#job_is_exchange").change ->
     toggleNextJobs(this)
 
+  ## Run by default
   setupLoc()
   toggleNextJobs($("#job_is_exchange"))
+  $('.add_nested_fields').hide()

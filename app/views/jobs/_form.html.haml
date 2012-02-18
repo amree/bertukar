@@ -35,6 +35,7 @@
     = f.fields_for :next_jobs do |next_job_form|
       = render 'next_job_fields', f: next_job_form
     = f.link_to_add "Add a next job", :next_jobs
+    %a{href: "#", id: "add-next-job"} Add a next job
 
   .actions
     = f.submit 'Save'
