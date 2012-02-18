@@ -17,6 +17,12 @@ $ ->
             $(loc).empty()
             $(loc).hide()
 
+      # Reselect programatically
+      if $(loc).next().val() != ""
+        $(loc).prev().val($(loc).next().val())
+        $(loc).prev().trigger('change')
+
+
   toggleNextJobs = (e) ->
     if $(e).val() == "true"
       $("#next-jobs").show()
