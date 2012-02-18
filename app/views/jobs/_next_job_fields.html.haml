@@ -1,4 +1,3 @@
-.nested-fields
-  %hr
-  = render 'location_fields', f: f
-  = link_to_remove_association "remove next job", f
+%hr
+= render 'location_fields', f: f
+= f.link_to_remove "Remove this task"
