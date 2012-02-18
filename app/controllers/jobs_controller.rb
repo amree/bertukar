@@ -12,11 +12,16 @@ class JobsController < ApplicationController
   # GET /jobs/new
   def new
     @job = Job.new(expired_at: Time.now + 6.months)
+    @job.next_jobs.build
   end
 
   # GET /jobs/1/edit
   def edit
     @job = current_user.jobs.find(params[:id])
+
+    if @job.next_jobs.size == 0
+      @job.next_jobs.build
+    end
   end
 
   # POST /jobs

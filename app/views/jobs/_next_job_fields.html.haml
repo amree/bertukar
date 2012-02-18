@@ -1,3 +1,5 @@
-%hr
-= render 'location_fields', f: f
-= f.link_to_remove "Remove this task"
+= f.fields_for :next_jobs, next_job do |i|
+  = @job.next_jobs[index].location_id
+  = i.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, { class: "job_state_id", id: "job_state_id" }
+  = i.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, {}, {class: "job_location_id"}
+  = i.link_to_remove "Remove this task #{index}"

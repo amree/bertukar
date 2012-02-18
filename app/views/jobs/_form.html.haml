@@ -11,7 +11,8 @@
     = f.select :is_exchange, { "Tawaran" => false, "Pertukaran" => true }
   .field
     = f.label :location_id, "Lokasi"
-    = render 'location_fields', f: f
+    = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, { class: "job_state_id", id: "job_state_id" }
+    = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, {}, {class: "job_location_id"}
   .field
     = f.label :title_id, "Jawatan"
     = f.collection_select :title_id, Title.all, :id, :nama
@@ -32,8 +33,8 @@
     = f.date_select :expired_at
 
   #next-jobs
-    = f.fields_for :next_jobs do |next_job_form|
-      = render 'next_job_fields', f: next_job_form
+    - @job.next_jobs.each.with_index do |next_job, index|
+      = render partial: 'next_job_fields', locals: { index: index, next_job: next_job, f: f }
     = f.link_to_add "Add a next job", :next_jobs
     %a{href: "#", id: "add-next-job"} Add a next job
 
