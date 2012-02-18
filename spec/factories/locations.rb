@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :location do
-    sequence(:nama) { Faker::Name.name }
+    sequence(:nama) { |n| "#{Faker::Name.name} #{n}" }
   end
 
   factory :state_with_district, parent: :location do

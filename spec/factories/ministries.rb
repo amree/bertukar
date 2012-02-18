@@ -2,6 +2,6 @@
 
 FactoryGirl.define do
   factory :ministry do
-    sequence(:nama) { Faker::Name.name }
+    sequence(:nama) { |n| "#{Faker::Name.name} #{n}" }
   end
 end
