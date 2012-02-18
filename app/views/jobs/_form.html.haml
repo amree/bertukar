@@ -11,10 +11,7 @@
     = f.select :is_exchange, { "Tawaran" => false, "Pertukaran" => true }
   .field
     = f.label :location_id, "Lokasi"
-    = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, { class: "job_state_id", id: "job_state_id" }
-    = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, { include_blank: true }, {class: "job_location_id"}
-    = hidden_field_tag "state_val", @job.get_state
-    = hidden_field_tag "location_val", @job.location_id
+    = render 'location_fields', f: f, state: @job.get_state, location: @job.location_id
   .field
     = f.label :title_id, "Jawatan"
     = f.collection_select :title_id, Title.all, :id, :nama
