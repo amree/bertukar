@@ -26,6 +26,10 @@ class Job < ActiveRecord::Base
   validate :verify_expired_at, unless: "expired_at.nil?"
   validate :current_job_should_be_blank_for_non_exchange, unless: "is_exchange?"
 
+  auto_strip_attributes :gred, squish: true
+  auto_strip_attributes :nota, squish: true
+  auto_strip_attributes :nama_organisasi, squish: true
+
   def is_not_next_job?
     !@is_next_job
   end
