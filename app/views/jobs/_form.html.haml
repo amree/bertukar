@@ -12,7 +12,7 @@
   .field
     = f.label :location_id, "Lokasi"
     = f.collection_select :location_id, Location.states, :id, :nama, { include_blank: true }, { class: "job_state_id", id: "job_state_id" }
-    = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, {}, {class: "job_location_id"}
+    = f.grouped_collection_select :location_id, Location.states, :districts, :nama, :id, :nama, { include_blank: true }, {class: "job_location_id"}
     = hidden_field_tag "state_val", @job.get_state
     = hidden_field_tag "location_val", @job.location_id
   .field
