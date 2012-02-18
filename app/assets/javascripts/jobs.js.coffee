@@ -17,19 +17,18 @@ $ ->
             $(loc).empty()
             $(loc).hide()
 
-  toggleNextJob = (e) ->
+  toggleNextJobs = (e) ->
     if $(e).val() == "true"
       $("#next-jobs").show()
-      $(".nested-fields").show()
     else
       $("#next-jobs").hide()
-      $(".nested-fields").hide()
 
-  $("#next-jobs").bind "insertion-callback", ->
+  # Rerun setupLoc() everytime user add new nested element
+  $(".add_nested_fields").bind "click", ->
     setupLoc()
 
   $("#job_is_exchange").change ->
-    toggleNextJob(this)
+    toggleNextJobs(this)
 
   setupLoc()
-  toggleNextJob($("#job_is_exchange"))
+  toggleNextJobs($("#job_is_exchange"))

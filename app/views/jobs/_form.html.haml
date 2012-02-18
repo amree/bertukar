@@ -31,9 +31,10 @@
     = f.label :expired_at
     = f.date_select :expired_at
 
-  = f.fields_for :next_jobs do |next_job_form|
-    = render 'next_job_fields', f: next_job_form
-  = f.link_to_add "Add a next job", :next_jobs
+  #next-jobs
+    = f.fields_for :next_jobs do |next_job_form|
+      = render 'next_job_fields', f: next_job_form
+    = f.link_to_add "Add a next job", :next_jobs
 
   .actions
     = f.submit 'Save'
