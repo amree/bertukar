@@ -18,10 +18,7 @@ class JobsController < ApplicationController
   # GET /jobs/1/edit
   def edit
     @job = current_user.jobs.find(params[:id])
-
-    if @job.next_jobs.size == 0
-      @job.next_jobs.build
-    end
+    @job.next_jobs.build
   end
 
   # POST /jobs
