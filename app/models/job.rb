@@ -30,6 +30,17 @@ class Job < ActiveRecord::Base
     !@is_next_job
   end
 
+  def get_state
+    unless location_id.nil?
+      location = Location.find(location_id)
+      unless location.state_id.nil?
+        return location.state_id
+      else
+        return location_id
+      end
+    end
+  end
+
   protected
 
   def verify_expired_at

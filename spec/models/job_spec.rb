@@ -113,4 +113,20 @@ describe Job do
       end
     end
   end
+
+  it "should return the correct state id" do
+    state = Factory(:location)
+    district = Factory(:location, state_id: state.id)
+
+    @job.location_id = district.id
+    @job.save
+
+    @job.get_state.should eql(state.id)
+  end
+
+  it "should return the same location if it's already a state" do
+    @job.save
+
+    @job.get_state.should eql(@job.location_id)
+  end
 end
