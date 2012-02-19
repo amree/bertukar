@@ -1,0 +1,29 @@
+.page-header
+  %h1
+    Login
+
+.row
+  .span12
+    = form_for resource, as: resource_name, url: session_path(resource_name), html: { class: "form-horizontal" } do |f|
+      %fieldset
+        .control-group
+          = f.label :email, class: "control-label"
+          .controls
+            = f.email_field :email, class: "input-xlarge"
+
+        .control-group
+          = f.label :password, "Kata Laluan", class: "control-label"
+          .controls
+            = f.password_field :password, class: "input-xlarge"
+
+        .control-group
+          %label.control-label
+          .controls
+            %label.checkbox
+              = f.check_box :remember_me
+              Remember me
+
+        .form-actions
+          = f.submit "Login", class: "btn btn-primary"
+          atau
+          = link_to "Terlupa kata laluan?", new_password_path(resource_name)
