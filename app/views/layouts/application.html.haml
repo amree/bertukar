@@ -1,0 +1,15 @@
+!!! 5
+%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
+  %head
+    %title Pergerakan
+    = stylesheet_link_tag "application"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+  %body
+    .container
+      .header
+        - if current_user.nil?
+          = render 'layouts/menu'
+        - else
+          = render 'layouts/user_menu'
+      = yield
