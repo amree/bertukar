@@ -8,6 +8,7 @@ gem 'auto_strip_attributes', '~> 2.0.2'
 gem 'devise', '~> 1.5.3'
 gem 'thin'
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
+gem 'less-rails-bootstrap'
 
 # Gems used only for assets and not required
 # in production environments by default.
