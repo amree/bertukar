@@ -12,4 +12,13 @@
           = render 'layouts/menu'
         - else
           = render 'layouts/user_menu'
+
+      - unless notice.blank? and alert.blank?
+        .notification
+          .alert.fade.in
+            %a.close{:"data-dismiss" => "alert"}×
+            %strong
+              Warning!
+            = notice || alert
+
       = yield
