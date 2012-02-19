@@ -1,30 +1,38 @@
-%h1 Listing jobs
+.page-header
+  %h1
+    Jawatan
+    %small
+      Senarai jawatan yang anda iklankan
 
-%table
-  %tr
-    %th User
-    %th Location
-    %th Gred
-    %th Nota
-    %th Nama organisasi
-    %th Expired at
-    %th Closed at
-    %th
-    %th
-    %th
-
-  - @jobs.each do |job|
-    %tr
-      %td= job.user_id
-      %td= job.location.nama
-      %td= job.gred
-      %td= job.nota
-      %td= job.nama_organisasi
-      %td= job.expired_at
-      %td= job.closed_at
-      %td= link_to 'Show', job
-      %td= link_to 'Edit', edit_job_path(job)
-      %td= link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete
+.row
+  .span12
+    %table.table.table-striped
+      %thead
+        %tr
+          %th #
+          %th Lokasi
+          %th Gred
+          %th Nama Organisasi
+          %th Tarikh Luput
+          %th Status
+          %th Tarikh Dibuat
+          %th
+      %tbody
+        - @jobs.each.with_index do |job, index|
+          %tr
+            %td= index + 1
+            %td
+              = job.location.nama
+              = job.location.state.nama
+            %td= job.gred
+            %td= job.nama_organisasi
+            %td= job.expired_at
+            %td
+            %td= time_ago_in_words(job.created_at)
+            %td
+              = link_to 'Show', job
+              = link_to 'Edit', edit_job_path(job)
+              = link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete
 
 %br
 
