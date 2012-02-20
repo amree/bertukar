@@ -1,4 +1,15 @@
 module ApplicationHelper
+  # TODO: Test normal_div_if
+  # Highlight form field if there's any error
+  def normal_div_if(condition, attributes = {}, &block)
+    if condition
+      attributes["class"] = "control-group"
+    else
+      attributes["class"] = "control-group error"
+    end
+    content_tag("div", attributes, &block)
+  end
+
   # TODO: Test show_flash
   def show_flash(notice, alert)
     type = notice.blank? ? "error" : "success"
