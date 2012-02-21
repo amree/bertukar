@@ -1,0 +1,41 @@
+.page-header
+  %h1
+    Akaun
+    %small
+      Kemaskini akaun anda
+
+.row
+  .span12
+    = form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" } do |f|
+      %fieldset
+
+      = normal_div_if resource.errors[:email].empty? do
+        = f.label :email, class: "control-label"
+        .controls
+          = f.email_field :email
+          %span.help-inline
+            = resource.errors[:email].join(", ")
+
+      = normal_div_if resource.errors[:password].empty? do
+        = f.label :password, class: "control-label"
+        .controls
+          = f.password_field :password
+          %span.help-inline
+            = resource.errors[:password].join(", ")
+
+      = normal_div_if resource.errors[:password_confirmation].empty? do
+        = f.label :password_confirmation
+        .controls
+          = f.password_field :password_confirmation
+          %span.help-inline
+            = resource.errors[:password_confirmation].join(", ")
+
+      = normal_div_if resource.errors[:current_password].empty? do
+        = f.label :current_password
+        .controls
+          = f.password_field :current_password
+          %span.help-inline
+            = resource.errors[:current_password].join(", ")
+
+      .form-actions
+        = f.submit "Kemaskini", class: "btn btn-primary"
