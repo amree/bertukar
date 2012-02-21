@@ -1,0 +1,27 @@
+.page-header
+  %h1
+    Tukar Kata Laluan
+
+.row
+  .span12
+    = form_for resource, as: resource_name, url: password_path(resource_name), html: { method: :put, class: "form-horizontal" } do |f|
+      %fieldset
+        = f.hidden_field :reset_password_token
+
+        = normal_div_if resource.errors[:password].empty? do
+          = f.label :password, "Kata Laluan Baru", class: "control-label"
+          .controls
+            = f.password_field :password
+            %span.help-inline
+              = resource.errors[:password].join(", ")
+
+        = normal_div_if resource.errors[:password_confirmation].empty? do
+          = f.label :password_confirmation, "Kata Laluan Baru (Sekali Lagi)"
+          .controls
+            = f.password_field :password_confirmation
+            %span.help-inline
+              = resource.errors[:password_confirmation].join(", ")
+
+
+        .form-actions
+          = f.submit "Tukar Kata Laluan", class: "btn btn-primary"
