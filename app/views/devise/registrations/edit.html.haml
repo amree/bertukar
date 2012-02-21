@@ -21,7 +21,11 @@
         .controls
           = f.password_field :password
           %span.help-inline
-            = resource.errors[:password].join(", ")
+            - if resource.errors[:password].blank?
+              %p.help-block
+                Tinggalkan kosong jika anda tidak mahu mengubah kata laluan
+            - else
+              = resource.errors[:password].join(", ")
 
       = normal_div_if resource.errors[:password_confirmation].empty? do
         = f.label :password_confirmation
@@ -35,7 +39,11 @@
         .controls
           = f.password_field :current_password
           %span.help-inline
-            = resource.errors[:current_password].join(", ")
+            - if resource.errors[:current_password].blank?
+              %p.help-block
+                Sila isi kata laluan anda untuk pengesahan akaun
+            - else
+              = resource.errors[:current_password].join(", ")
 
       .form-actions
         = f.submit "Kemaskini", class: "btn btn-primary"
