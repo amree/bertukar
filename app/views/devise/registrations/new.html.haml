@@ -24,7 +24,7 @@
             = resource.errors[:password].join(", ")
 
       = normal_div_if resource.errors[:password_confirmation].empty? do
-        = f.label :password_confirmation
+        = f.label :password_confirmation, class: "control-label"
         .controls
           = f.password_field :password_confirmation
           %span.help-inline

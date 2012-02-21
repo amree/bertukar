@@ -16,7 +16,7 @@
               = resource.errors[:password].join(", ")
 
         = normal_div_if resource.errors[:password_confirmation].empty? do
-          = f.label :password_confirmation, "Kata Laluan Baru (Sekali Lagi)"
+          = f.label :password_confirmation, "Kata Laluan Baru (Sekali Lagi)", class: "control-label"
           .controls
             = f.password_field :password_confirmation
             %span.help-inline
