@@ -36,6 +36,7 @@ $ ->
   $("#add-next-job").bind "click", ->
     $('.add_nested_fields').click()
     setupLoc()
+    return false
 
   # Show/hide based on job's type
   $("#job_is_exchange").change ->
