@@ -1,4 +1,6 @@
 = f.fields_for :next_jobs, next_job do |i|
-  = @job.next_jobs[index].location_id
-  = render 'location_fields', f: i, state: @job.next_jobs[index].get_state, location: @job.next_jobs[index].get_state
-  = i.link_to_remove "Remove this task #{index}"
+  .control-group
+    = label_tag nil, "Lokasi", class: "control-label"
+    .controls
+      = render 'location_fields', f: i, state: @job.next_jobs[index].get_state, location: @job.next_jobs[index].get_state
+      = i.link_to_remove "Padam", class: "btn btn-danger"

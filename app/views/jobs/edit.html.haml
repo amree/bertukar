@@ -1,7 +1,9 @@
-%h1 Editing job
+.page-header
+  %h1
+    Kemaskini Jawatan
+    %small
+      Kemaskini iklan
 
-= render 'form'
-
-= link_to 'Show', @job
-\|
-= link_to 'Back', jobs_path
+.row
+  .span12
+    = render 'form'

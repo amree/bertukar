@@ -1,41 +1,73 @@
-= nested_form_for @job do |f|
-  - if @job.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@job.errors.count, "error")} prohibited this job from being saved:"
-      %ul
-        - @job.errors.full_messages.each do |msg|
-          %li= msg
+= nested_form_for @job, html: { class: "form-horizontal" } do |f|
+  %fieldset
+    = normal_div_if @job.errors[:is_exchange].empty? do
+      = f.label :is_exchange, "Jenis", class: "control-label"
+      .controls
+        = f.select :is_exchange, { "Tawaran" => false, "Pertukaran" => true }
+        %span.help-inline
+          = @job.errors[:is_exchange].join(", ")
 
-  .field
-    = f.label :is_exchange, "Jenis"
-    = f.select :is_exchange, { "Tawaran" => false, "Pertukaran" => true }
-  .field
-    = f.label :location_id, "Lokasi"
-    = render 'location_fields', f: f, state: @job.get_state, location: @job.location_id
-  .field
-    = f.label :title_id, "Jawatan"
-    = f.collection_select :title_id, Title.all, :id, :nama
-  .field
-    = f.label :ministry_id, "Kementerian"
-    = f.collection_select :ministry_id, Ministry.all, :id, :nama
-  .field
-    = f.label :gred
-    = f.text_field :gred
-  .field
-    = f.label :nota
-    = f.text_area :nota
-  .field
-    = f.label :nama_organisasi
-    = f.text_field :nama_organisasi
-  .field
-    = f.label :expired_at
-    = f.date_select :expired_at
+    = normal_div_if @job.errors[:location_id].empty? do
+      = f.label :location_id, "Lokasi", class: "control-label"
+      .controls
+        = render 'location_fields', f: f, state: @job.get_state, location: @job.location_id
+        %span.help-inline
+          = @job.errors[:location_id].join(", ")
 
-  #next-jobs
-    - @job.next_jobs.each.with_index do |next_job, index|
-      = render partial: 'next_job_fields', locals: { index: index, next_job: next_job, f: f }
-    = f.link_to_add "Add a next job", :next_jobs
-    %a{href: "#", id: "add-next-job"} Add a next job
+    = normal_div_if @job.errors[:title_id].empty? do
+      = f.label :title_id, "Jawatan", class: "control-label"
+      .controls
+        = f.collection_select :title_id, Title.all, :id, :nama, {}, class: "span4"
+        %span.help-inline
+          = @job.errors[:title_id].join(", ")
 
-  .actions
-    = f.submit 'Save'
+    = normal_div_if @job.errors[:ministry_id].empty? do
+      = f.label :ministry_id, "Kementerian", class: "control-label"
+      .controls
+        = f.collection_select :ministry_id, Ministry.all, :id, :nama, {}, class: "span4"
+        %span.help-inline
+          = @job.errors[:ministry_id].join(", ")
+
+    = normal_div_if @job.errors[:nama_organisasi].empty? do
+      = f.label :nama_organisasi, "Nama Organisasi", class: "control-label"
+      .controls
+        = f.text_field :nama_organisasi, class: "span4"
+        %span.help-inline
+          = @job.errors[:nama_organisasi].join(", ")
+
+    = normal_div_if @job.errors[:gred].empty? do
+      = f.label :gred, class: "control-label"
+      .controls
+        = f.text_field :gred, class: "input-mini"
+        %span.help-inline
+          = @job.errors[:gred].join(", ")
+
+    = normal_div_if @job.errors[:nota].empty? do
+      = f.label :nota, class: "control-label"
+      .controls
+        = f.text_area :nota, class: "input-xlarge", rows: 4
+        %span.help-inline
+          = @job.errors[:nota].join(", ")
+
+    = normal_div_if @job.errors[:expired_at].empty? do
+      = f.label :expired_at, "Tarikh Luput", class: "control-label"
+      .controls
+        = f.date_select :expired_at
+        %span.help-inline
+          = @job.errors[:expired_at].join(", ")
+
+    #next-jobs.control-group
+      %hr
+      %h3
+        Pilihan Penempatan Baru
+      %br
+      - @job.next_jobs.each.with_index do |next_job, index|
+        = render partial: 'next_job_fields', locals: { index: index, next_job: next_job, f: f }
+      = f.link_to_add "Add a next job", :next_jobs
+      .control-group
+        .control-label
+        .controls
+          %a{href: "#", id: "add-next-job"} Tambah Lokasi
+
+    .form-actions
+      = f.submit 'Save', class: "btn btn-primary"
