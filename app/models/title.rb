@@ -1,4 +1,6 @@
 class Title < ActiveRecord::Base
+  default_scope order(:nama)
+
   validates :nama, uniqueness: true, presence: true
   validates :skim, presence: true
   validates :skim, format: { :with => /\A[a-zA-Z]+\z/, :message => "Only letters allowed" }
