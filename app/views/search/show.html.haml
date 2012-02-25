@@ -1,0 +1,33 @@
+%p#notice= notice
+
+%p
+  %b User:
+  = @job.user_id
+%p
+  %b Location:
+  = @job.location_id
+%p
+  %b Title:
+  = @job.title_id
+%p
+  %b Ministry:
+  = @job.ministry_id
+%p
+  %b Gred:
+  = @job.gred
+%p
+  %b Nota:
+  = @job.nota
+%p
+  %b Nama Organisasi:
+  = @job.nama_organisasi
+%p
+  %b Expired at:
+  = @job.expired_at
+%p
+  %b Is Exchange:
+  = @job.is_exchange
+
+%p
+  %b Contact:
+  = mail_to @job.user.email, nil, encode: :hex
