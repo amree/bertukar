@@ -106,6 +106,8 @@ GEM
     multi_json (1.1.0)
     mysql2 (0.3.11)
     orm_adapter (0.0.6)
+    polyamorous (0.5.0)
+      activerecord (~> 3.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.1)
@@ -130,6 +132,10 @@ GEM
       rdoc (~> 3.4)
       thor (~> 0.14.6)
     rake (0.9.2.2)
+    ransack (0.6.0)
+      actionpack (~> 3.0)
+      activerecord (~> 3.0)
+      polyamorous (~> 0.5.0)
     rdoc (3.12)
       json (~> 1.4)
     routes (0.1.4)
@@ -194,6 +200,7 @@ DEPENDENCIES
   mysql2 (~> 0.3.11)
   nested_form!
   rails (= 3.2.1)
+  ransack
   routes (~> 0.1.4)
   rspec-rails (~> 2.8.1)
   sass-rails (~> 3.2.3)
