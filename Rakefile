@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Pertukaran::Application.load_tasks
+Bertukar::Application.load_tasks

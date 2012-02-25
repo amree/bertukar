@@ -1,4 +1,4 @@
-Pertukaran::Application.routes.draw do
+Bertukar::Application.routes.draw do
 
   resources :search, only: [:index, :show]
 
