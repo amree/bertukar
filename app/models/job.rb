@@ -6,6 +6,8 @@ class Job < ActiveRecord::Base
   belongs_to :title
   belongs_to :ministry
 
+  scope :main, where("job_id IS NULL")
+
   accepts_nested_attributes_for :next_jobs, reject_if: :all_blank, allow_destroy: true
 
   attr_accessor :is_next_job

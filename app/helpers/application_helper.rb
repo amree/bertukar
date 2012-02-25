@@ -23,4 +23,14 @@ module ApplicationHelper
     end
     raw html
   end
+
+  # TODO: Test show_location
+  def show_location(location)
+    unless location.blank?
+      text = location.nama
+      unless location.state.nil?
+        text = "#{location.state.nama}, #{location.nama}"
+      end
+    end
+  end
 end

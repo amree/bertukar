@@ -1,1 +1,35 @@
-index
+.row
+  .span6.offset3.align-center.well
+    #searchbox
+      = search_form_for @q, url: search_index_path, html: { method: :get, class: "form-inline" } do |f|
+        = f.collection_select :title_skim_eq, Title.unscoped.order(:skim), :skim, :skim, { include_blank: true }, { class: "span1" }
+        = f.text_field :gred_eq, class: "span1", placeholder: "1-1"
+        = f.collection_select :location_id_or_location_state_id_eq, Location.states, :id, :nama, { include_blank: true }
+        = f.submit "Cari", class: "btn btn-primary"
+  .span3
+    &nbsp;
+
+.row
+  - unless @jobs.count > 0
+    .span6.offset3.align-center
+      Tiada keputusan. Sila buat carian lain.
+  - else
+    - unless params[:q].nil?
+      - @jobs.each do |job|
+        .span6.offset3.align-center
+          .row
+            .span1
+              = job.title.skim
+              = job.gred
+            .span4.align-left
+              .row
+                = show_location(job.location)
+              .row
+                = job.nama_organisasi
+              .row
+                = time_ago_in_words(job.created_at)
+            .span1
+              = link_to search_path(job), class: "btn" do
+                %i.icon-eye-open
+        .span3
+          &nbsp;
