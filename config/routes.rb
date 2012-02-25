@@ -1,6 +1,6 @@
 Pertukaran::Application.routes.draw do
 
-  get "search/index"
+  resources :search, only: [:index, :show]
 
   devise_for :users
 
