@@ -10,6 +10,7 @@ gem 'thin'
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'less-rails-bootstrap'
 gem 'ransack'
+gem 'simple-navigation'
 
 # Gems used only for assets and not required
 # in production environments by default.
