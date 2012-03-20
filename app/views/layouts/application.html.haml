@@ -8,10 +8,11 @@
   %body
     .container
       .header
-        - if current_user.nil?
-          = render 'layouts/menu'
-        - else
-          = render 'layouts/user_menu'
+        = render_navigation renderer: :bootstrap_pills
+        / - if current_user.nil?
+        /   = render 'layouts/menu'
+        / - else
+        /   = render 'layouts/user_menu'
 
       = show_flash(notice, alert)
 
