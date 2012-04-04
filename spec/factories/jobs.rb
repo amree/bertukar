@@ -6,7 +6,7 @@ FactoryGirl.define do
     association     :location
     association     :title
     association     :ministry
-    gred            "1-1"
+    gred            "41"
     is_exchange     false
     sequence(:nama_organisasi)  { Faker::Name.name }
     sequence(:expired_at)       { Time.now + 6.months }

@@ -48,6 +48,18 @@ describe Job do
 
         @job.should_not be_valid
       end
+
+      it "should fail when value < 0" do
+        @job.gred = -1
+
+        @job.should_not be_valid
+      end
+
+      it "should fail when value > 54" do
+        @job.gred = 55
+
+        @job.should_not be_valid
+      end
     end
   end
 
