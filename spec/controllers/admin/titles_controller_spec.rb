@@ -6,7 +6,7 @@ describe Admin::TitlesController do
   # Title As you add validations to Title, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    Factory.build(:title).attributes
+    FactoryGirl.build(:title).attributes
   end
 
   # This should return the minimal set of values that should be in the session

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Title do
   before do
-    @title = Factory.build(:title)
+    @title = FactoryGirl.build(:title)
   end
 
   describe "validations" do
@@ -15,7 +15,7 @@ describe Title do
 
       it "should be unique" do
         @title.save
-        title2 = Factory.build(:title, nama: @title.nama)
+        title2 = FactoryGirl.build(:title, nama: @title.nama)
 
         title2.should_not be_valid
       end

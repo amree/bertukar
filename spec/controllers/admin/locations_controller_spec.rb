@@ -6,7 +6,7 @@ describe Admin::LocationsController do
   # Location. As you add validations to Location, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    Factory.build(:location).attributes
+    FactoryGirl.build(:location).attributes
   end
 
   # This should return the minimal set of values that should be in the session

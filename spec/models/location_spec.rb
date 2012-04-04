@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Location do
   before do
-    @location = Factory.build(:location)
+    @location = FactoryGirl.build(:location)
   end
 
   describe "relationship" do
@@ -10,7 +10,7 @@ describe Location do
       @location.save
 
       @location.districts.build
-      @location.districts[0] = Factory.build(:location)
+      @location.districts[0] = FactoryGirl.build(:location)
       @location.save
     end
 
@@ -33,7 +33,7 @@ describe Location do
     end
 
     it "should not have a valid state for a district" do
-      district = Factory(:state_with_district).districts.first
+      district = FactoryGirl.create(:state_with_district).districts.first
       district.state_id = 1000
 
       district.should_not be_valid
@@ -41,20 +41,20 @@ describe Location do
 
     it "should have unique nama" do
       @location.save
-      location2 = Factory.build(:location, nama: @location.nama)
+      location2 = FactoryGirl.build(:location, nama: @location.nama)
 
       location2.should_not be_valid
     end
 
     it "should have unique nama scoped to state" do
-      district1 = Factory(:state_with_district).districts.first
-      district2 = Factory.build(:location, state: district1.state, nama: district1.nama)
+      district1 = FactoryGirl.create(:state_with_district).districts.first
+      district2 = FactoryGirl.build(:location, state: district1.state, nama: district1.nama)
 
       district2.should_not be_valid
     end
 
     it "should not destroy state with district" do
-      state = Factory(:state_with_district)
+      state = FactoryGirl.create(:state_with_district)
 
       expect {
         state.destroy

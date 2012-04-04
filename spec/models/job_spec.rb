@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Job do
   before do
-    @job = Factory.build(:job)
+    @job = FactoryGirl.build(:job)
   end
 
   context "exchange and non exchange" do
@@ -100,7 +100,7 @@ describe Job do
       it "should fail with a current job" do
         @job.save
 
-        job = Factory.build(:job, job_id: @job)
+        job = FactoryGirl.build(:job, job_id: @job)
         job.is_exchange = false
 
         job.should_not be_valid
@@ -115,8 +115,8 @@ describe Job do
   end
 
   it "should return the correct state id" do
-    state = Factory(:location)
-    district = Factory(:location, state_id: state.id)
+    state = FactoryGirl.create(:location)
+    district = FactoryGirl.create(:location, state_id: state.id)
 
     @job.location_id = district.id
     @job.save

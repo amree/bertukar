@@ -7,7 +7,7 @@ describe JobsController do
   # Job. As you add validations to Job, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    Factory.build(:job, user: controller.current_user).attributes
+    FactoryGirl.build(:job, user: controller.current_user).attributes
   end
 
   describe "GET index" do

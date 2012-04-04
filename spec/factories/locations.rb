@@ -8,7 +8,7 @@ FactoryGirl.define do
   factory :state_with_district, parent: :location do
     after_create { |location|
       location.districts.build
-      location.districts[0] = Factory(:location, state: location)
+      location.districts[0] = FactoryGirl.create(:location, state: location)
     }
   end
 end

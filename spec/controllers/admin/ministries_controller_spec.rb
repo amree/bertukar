@@ -6,7 +6,7 @@ describe Admin::MinistriesController do
   # Ministry. As you add validations to Ministry, be sure to
   # update the return value of this method accordingly.
   def valid_attributes
-    Factory.build(:ministry).attributes
+    FactoryGirl.build(:ministry).attributes
   end
 
   # This should return the minimal set of values that should be in the session

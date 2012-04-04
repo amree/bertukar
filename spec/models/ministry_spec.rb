@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Ministry do
   before do
-    @ministry = Factory.build(:ministry)
+    @ministry = FactoryGirl.build(:ministry)
   end
 
   describe "validations" do
@@ -16,7 +16,7 @@ describe Ministry do
       it "should be unique" do
          @ministry.save
 
-         @ministry2 = Factory.build(:ministry, nama: @ministry.nama)
+         @ministry2 = FactoryGirl.build(:ministry, nama: @ministry.nama)
          @ministry2.should_not be_valid
       end
     end
