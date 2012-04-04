@@ -1,11 +1,11 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.1'
+gem 'rails', '3.2.3'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.11'
 gem 'haml-rails', '~> 0.3.4'
 gem 'auto_strip_attributes', '~> 2.0.2'
-gem 'devise', '~> 1.5.3'
+gem 'devise', '~> 2.0.4'
 gem 'thin'
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
 gem 'less-rails-bootstrap'
@@ -27,11 +27,11 @@ group :development do
 end
 
 group :test, :development do
-  gem 'rspec-rails', '~> 2.8.1'
-  gem 'factory_girl_rails', '~> 1.5.0'
-  gem 'ffaker', '~> 1.12.1'
+  gem 'rspec-rails', '~> 2.9.0'
+  gem 'factory_girl_rails', '~> 3.0.0'
+  gem 'ffaker', '~> 1.14.0'
   gem 'database_cleaner', '~> 0.7.1'
-  gem 'guard-rspec', '~> 0.6.0'
+  gem 'guard-rspec', '~> 0.7.0'
   gem 'guard-spork', '~> 0.5.1'
   gem 'spork', '~> 0.9.0.rc'
 end
