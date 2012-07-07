@@ -25,13 +25,3 @@ group :development do
   gem 'awesome_print', '~> 1.0.2'
   gem 'hirb', '~> 0.6.0'
 end
-
-group :test, :development do
-  gem 'rspec-rails', '~> 2.9.0'
-  gem 'factory_girl_rails', '~> 3.0.0'
-  gem 'ffaker', '~> 1.14.0'
-  gem 'database_cleaner', '~> 0.7.1'
-  gem 'guard-rspec', '~> 0.7.0'
-  gem 'guard-spork', '~> 0.5.1'
-  gem 'spork', '~> 0.9.0.rc'
-end
