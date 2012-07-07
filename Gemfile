@@ -22,7 +22,6 @@ group :assets do
 end
 
 group :development do
-  gem 'routes', '~> 0.1.4'
   gem 'awesome_print', '~> 1.0.2'
   gem 'hirb', '~> 0.6.0'
 end
