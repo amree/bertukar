@@ -25,3 +25,12 @@ group :development do
   gem 'awesome_print', '~> 1.0.2'
   gem 'hirb', '~> 0.6.0'
 end
+
+group :development, :test do
+  gem 'spork-testunit', '~> 0.0.8'
+  gem 'guard-spork', '~> 1.1.0'
+end
+
+group :tools do
+  gem 'guard-test', '~> 0.5.0'
+end
