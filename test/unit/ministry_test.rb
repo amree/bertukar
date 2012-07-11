@@ -8,14 +8,14 @@ class MinistryTest < ActiveSupport::TestCase
   test "should not be valid without nama" do
     @kkm.nama = nil
 
-    assert !@kkm.valid?
+    assert @kkm.invalid?
   end
 
   test "should not be valid without a unique name" do
     kpt = ministries(:kpt)
     kpt.nama = @kkm.nama
 
-    assert !kpt.valid?
+    assert kpt.invalid?
   end
 
   test "should be active by default" do
