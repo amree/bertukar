@@ -1,0 +1,8 @@
+kelantan:
+  id: 1
+  nama: Kelantan
+
+kota_bharu:
+  id: 2
+  state_id: 1
+  nama: Kota Bharu

@@ -9,7 +9,7 @@ class Location < ActiveRecord::Base
 
   validates :nama, presence: true
   validates :nama, uniqueness: { scope: :state_id }
-  validates_presence_of :state, unless: "state_id.nil?"
+  validates :state, presence: true, unless: "state_id.nil?"
 
   before_destroy :check_districts
 
