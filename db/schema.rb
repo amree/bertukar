@@ -11,10 +11,10 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120213105111) do
+ActiveRecord::Schema.define(:version => 20120804002803) do
 
   create_table "jobs", :force => true do |t|
-    t.integer  "job_id"
+    t.integer  "current_job_id"
     t.integer  "user_id"
     t.integer  "location_id"
     t.integer  "title_id"
