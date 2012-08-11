@@ -22,6 +22,7 @@ Spork.prefork do
     # Add more helper methods to be used by all tests here...
   end
 
+  require 'mocha'
 end
 
 Spork.each_run do

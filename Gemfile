@@ -30,6 +30,7 @@ end
 group :development, :test do
   gem 'spork-testunit', '~> 0.0.8'
   gem 'guard-spork', '~> 1.1.0'
+  gem 'mocha', '~> 0.12.3', :require => false
 end
 
 group :tools do
