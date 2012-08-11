@@ -112,7 +112,7 @@ describe Job do
       it "should fail with a current job" do
         @job.save
 
-        job = FactoryGirl.build(:job, job_id: @job)
+        job = FactoryGirl.build(:job, current_job_id: @job)
         job.is_exchange = false
 
         job.should_not be_valid

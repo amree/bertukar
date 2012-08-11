@@ -1,12 +1,12 @@
 class Job < ActiveRecord::Base
-  has_many   :next_jobs, class_name: "Job"
+  has_many   :next_jobs, foreign_key: :current_job_id, class_name: "Job"
   belongs_to :current_job, class_name: "Job"
   belongs_to :user
   belongs_to :location
   belongs_to :title
   belongs_to :ministry
 
-  scope :main, where("job_id IS NULL")
+  scope :main, where("current_ IS NULL")
 
   accepts_nested_attributes_for :next_jobs, reject_if: :all_blank, allow_destroy: true
 
@@ -60,8 +60,8 @@ class Job < ActiveRecord::Base
   end
 
   def current_job_should_be_blank_for_non_exchange
-    unless job_id.nil?
-      errors.add(:job_id, "should not be set")
+    unless current_job_id.nil?
+      errors.add(:current_job_id, "should not be set")
     end
   end
 
