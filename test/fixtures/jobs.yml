@@ -1,0 +1,18 @@
+offer:
+  user: admin
+  location: kelantan
+  title: pegawai_it
+  ministry: kkm
+  gred: 41
+  nama_organisasi: Hospital Raja Perempuan Zainab II
+  expired_at: <%= 6.months.from_now %>
+
+current:
+  user: user
+  location: kelantan
+  title: pegawai_it
+  ministry: kkm
+  gred: 41
+  nama_organisasi: Hospital Universiti Sains Malaysia
+  expired_at: <%= 6.months.from_now %>
+  is_exchange: true
