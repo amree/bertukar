@@ -24,6 +24,7 @@ end
 group :development do
   gem 'awesome_print', '~> 1.0.2'
   gem 'hirb', '~> 0.6.0'
+  gem 'debugger', '~> 1.2.0'
 end
 
 group :development, :test do
