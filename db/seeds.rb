@@ -1,7 +1,5 @@
 states = Array.new
-states << { "nama" => "Kuala Lumpur" }
-states << { "nama" => "Labuan"}
-states << { "nama" => "Putrajaya"}
+states << { "nama" => "Wilayah Persekutuan", "districts" => ["Kuala Lumpur", "Labuan", "Putrajaya"]}
 states << { "nama" => "Johor",           "districts" => ["Johor Bahru", "Batu Pahat", "Muar", "Kluang", "Kota Tinggi", "Segamat", "Pontian", "Mersing", "Kulaijaya", "Ledang"]}
 states << { "nama" => "Kedah",           "districts" => ["Baling" ,"Bandar" ,"Baharu" ,"Kota Setar" ,"Kuala" ,"Muda" ,"Kubang" ,"Pasu" ,"Kulim" ,"Langkawi" ,"Padang" ,"Terap" ,"Pendang" ,"Pokok" ,"Sena" ,"Sik" ,"Yan"]}
 states << { "nama" => "Kelantan",        "districts" => ["Kota Bharu", "Pasir Mas", "Tumpat", "Pasir Puteh", "Bachok", "Kuala Krai", "Machang", "Tanah Merah", "Jeli", "Gua", "Musang"]}
