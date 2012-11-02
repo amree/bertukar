@@ -108,4 +108,10 @@ class JobTest < ActiveSupport::TestCase
 
     assert current.invalid?
   end
+
+  test "destroying parent should destroy its children" do
+    @current.destroy
+
+    assert Job.find_by_id(@next).nil?
+  end
 end

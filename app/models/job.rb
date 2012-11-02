@@ -1,5 +1,5 @@
 class Job < ActiveRecord::Base
-  has_many   :next_jobs, foreign_key: :current_job_id, class_name: "Job"
+  has_many   :next_jobs, foreign_key: :current_job_id, class_name: "Job", dependent: :destroy
   belongs_to :current_job, class_name: "Job"
   belongs_to :user
   belongs_to :location
