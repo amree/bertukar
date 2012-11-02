@@ -18,12 +18,15 @@ states << { "nama" => "Terengganu",      "districts" => ["Kuala Terengganu", "Hu
 
 ActiveRecord::Base.transaction do
   states.each do |state|
-    s = Location.new(nama: state["nama"])
+    s = Location.new
+    s.nama = state["nama"]
     s.save!
 
     unless state["districts"].nil?
       state["districts"].each_with_index do |district, i|
-        d = Location.new(nama: district, state: s)
+        d = Location.new
+        d.nama = district
+        d.state = s
         d.save!
       end
     end # unless
