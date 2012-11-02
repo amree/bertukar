@@ -1,16 +1,16 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.11'
 gem 'haml-rails', '~> 0.3.4'
 gem 'auto_strip_attributes', '~> 2.0.2'
-gem 'devise', '~> 2.0.4'
+gem 'devise', '~> 2.1.2'
 gem 'thin'
 gem 'nested_form', :git => 'https://github.com/ryanb/nested_form.git'
-gem 'less-rails-bootstrap'
-gem 'ransack'
+gem 'ransack', '~> 0.7.0'
 gem 'simple-navigation'
+gem 'awesome_print', '~> 1.0.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -19,20 +19,17 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
+  gem 'less-rails-bootstrap', '~> 2.1.1'
 end
 
 group :development do
-  gem 'awesome_print', '~> 1.0.2'
   gem 'hirb', '~> 0.6.0'
   gem 'debugger', '~> 1.2.0'
 end
 
 group :development, :test do
-  gem 'spork-testunit', '~> 0.0.8'
-  gem 'guard-spork', '~> 1.1.0'
-  gem 'mocha', '~> 0.12.3', :require => false
-end
-
-group :tools do
-  gem 'guard-test', '~> 0.5.0'
+  gem 'spin', '~> 0.5.3'
+  gem 'guard-spin', '~> 0.3.0'
+  gem 'debugger', '~> 1.2.0'
+  gem 'rb-fsevent', '~> 0.9.1'
 end
