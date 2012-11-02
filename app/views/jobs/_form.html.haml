@@ -1,12 +1,14 @@
 = nested_form_for @job, html: { class: "form-horizontal" } do |f|
-  %fieldset
-    = normal_div_if @job.errors[:is_exchange].empty? do
-      = f.label :is_exchange, "Jenis", class: "control-label"
-      .controls
-        = f.select :is_exchange, { "Tawaran" => false, "Pertukaran" => true }
-        %span.help-inline
-          = @job.errors[:is_exchange].join(", ")
+  - if @job.errors[:base].any?
+    .alert.alert-error
+      %button.close{ :"type" => "button", :"data-dismiss" => "alert" }
+        = raw("&times;")
+      %h4 Errors
+      %ul
+        - @job.errors[:base].each do |msg|
+          %li= msg
 
+  .row
     = normal_div_if @job.errors[:location_id].empty? do
       = f.label :location_id, "Lokasi", class: "control-label"
       .controls
@@ -14,47 +16,40 @@
         %span.help-inline
           = @job.errors[:location_id].join(", ")
 
-    = normal_div_if @job.errors[:title_id].empty? do
-      = f.label :title_id, "Jawatan", class: "control-label"
-      .controls
-        = f.collection_select :title_id, Title.all, :id, :nama, {}, class: "span4"
-        %span.help-inline
-          = @job.errors[:title_id].join(", ")
-
     = normal_div_if @job.errors[:ministry_id].empty? do
       = f.label :ministry_id, "Kementerian", class: "control-label"
       .controls
-        = f.collection_select :ministry_id, Ministry.all, :id, :nama, {}, class: "span4"
+        = f.collection_select :ministry_id, Ministry.all, :id, :nama, {}, class: "input-xlarge"
         %span.help-inline
           = @job.errors[:ministry_id].join(", ")
 
     = normal_div_if @job.errors[:nama_organisasi].empty? do
       = f.label :nama_organisasi, "Nama Organisasi", class: "control-label"
       .controls
-        = f.text_field :nama_organisasi, class: "span4"
+        = f.text_field :nama_organisasi, class: "input-xlarge", placeholder: "Jabatan Perkhidmatan Awam"
         %span.help-inline
           = @job.errors[:nama_organisasi].join(", ")
 
     = normal_div_if @job.errors[:gred].empty? do
       = f.label :gred, class: "control-label"
       .controls
-        = f.text_field :gred, class: "input-mini"
+        = f.text_field :gred, class: "input-mini", placeholder: "F41"
         %span.help-inline
           = @job.errors[:gred].join(", ")
+
+    = normal_div_if @job.errors[:jawatan].empty? do
+      = f.label :jawatan, class: "control-label"
+      .controls
+        = f.text_field :jawatan, placeholder: "Pegawai Teknologi Maklumat"
+        %span.help-inline
+          = @job.errors[:jawatan].join(", ")
 
     = normal_div_if @job.errors[:nota].empty? do
       = f.label :nota, class: "control-label"
       .controls
-        = f.text_area :nota, class: "input-xlarge", rows: 4
+        = f.text_area :nota, class: "input-xxlarge", rows: 4, placeholder: "Skop kerja dan sebagainya"
         %span.help-inline
           = @job.errors[:nota].join(", ")
-
-    = normal_div_if @job.errors[:expired_at].empty? do
-      = f.label :expired_at, "Tarikh Luput", class: "control-label"
-      .controls
-        = f.date_select :expired_at
-        %span.help-inline
-          = @job.errors[:expired_at].join(", ")
 
     #next-jobs.control-group
       %hr
