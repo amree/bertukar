@@ -2,110 +2,123 @@ require 'test_helper'
 
 class JobTest < ActiveSupport::TestCase
   setup do
-    @job_offer = jobs(:offer)
-    @job_current = jobs(:current)
+    @offer = jobs(:offer)
+    @current = jobs(:current)
+    @next = jobs(:next)
+  end
+
+  test "is a current job" do
+    assert @current.is_current_job?
+  end
+
+  test "is a next job" do
+    assert @next.is_next_job?
   end
 
   test "should fail without a valid user " do
-    @job_offer.user_id = nil
-    assert @job_offer.invalid?
+    @offer.user_id = nil
+    assert @offer.invalid?
 
-    @job_offer.user_id = 1000
-    assert @job_offer.invalid?
+    @offer.user_id = 0
+    assert @offer.invalid?
   end
 
   test "should fail without a valid location" do
-    @job_offer.location_id = nil
-    assert @job_offer.invalid?
+    @offer.location_id = nil
+    assert @offer.invalid?
 
-    @job_offer.location_id = 1000
-    assert @job_offer.invalid?
+    @offer.location_id = 0
+    assert @offer.invalid?
   end
 
-  test "should fail without a valid title" do
-    @job_offer.title_id = nil
-    assert @job_offer.invalid?
+  test "should fail without a ministry" do
+    @offer.ministry_id = nil
+    assert @offer.invalid?
 
-    @job_offer.title_id = 1000
-    assert @job_offer.invalid?
+    @offer.ministry_id = 0
+    assert @offer.invalid?
+  end
+
+  test "should fail without a valid jawatan" do
+    @offer.jawatan = nil
+    assert @offer.invalid?
+
+    @offer.jawatan = ""
+    assert @offer.invalid?
   end
 
   test "should fail without gred" do
-    @job_offer.gred = nil
+    @offer.gred = nil
 
-    assert @job_offer.invalid?
+    assert @offer.invalid?
+  end
+
+  test "should pass with the correct gred" do
+    @offer.gred = "F41"
+
+    assert @offer.valid?
   end
 
   test "should fail without an expiry date" do
-    @job_offer.expired_at = nil
+    @offer.expired_at = nil
 
-    assert @job_offer.invalid?
+    assert @offer.invalid?
   end
 
   test "should fail when expiry date is earlier than the current time" do
-    @job_offer.expired_at = Time.now - 1.day
+    @offer.expired_at = Time.now - 1.day
 
-    assert @job_offer.invalid?
-  end
-
-  test "should fail with incorrect gred's format" do
-    @job_offer.gred = "F41"
-
-    assert @job_offer.invalid?
-  end
-
-  test "should fail when gred's value < 0" do
-    @job_offer.gred = -1
-
-    assert @job_offer.invalid?
-  end
-
-  test "should fail when gred's value > 54" do
-    @job_offer.gred = 55
-
-    assert @job_offer.invalid?
-  end
-
-  test "should fail without a valid ministry" do
-    @job_offer.ministry_id = 1000
-    assert @job_offer.invalid?
-
-    @job_offer.ministry_id = nil
-    assert @job_offer.invalid?
+    assert @offer.invalid?
   end
 
   test "should fail without nama_organisasi" do
-    @job_offer.nama_organisasi = ""
-    assert @job_offer.invalid?
+    @offer.nama_organisasi = ""
+    assert @offer.invalid?
 
-    @job_offer.nama_organisasi = nil
-    assert @job_offer.invalid?
+    @offer.nama_organisasi = nil
+    assert @offer.invalid?
   end
 
   test "next job should pass without ministry" do
-    next_job = @job_current.next_jobs.build
-    next_job.location_id = @job_current.location_id
-    next_job.ministry_id = nil
+    @next.ministry_id = nil
 
-    assert @job_current.valid?
+    assert @next.valid?
+  end
+
+  test "next job should pass without nama organisasi" do
+    @next.nama_organisasi = nil
+
+    assert @next.valid?
   end
 
   test "current job should populate next job automatically" do
-    @job_current.next_jobs.build
-    @job_current.save
+    next_job = @current.next_jobs.build
+    next_job.location_id = Location.first.id
 
-    assert @job_current.next_jobs.last.user_id == @job_current.user_id
-    assert @job_current.next_jobs.last.title_id == @job_current.title_id
-    assert @job_current.next_jobs.last.gred == @job_current.gred
-    assert @job_current.next_jobs.last.expired_at == @job_current.expired_at
-    assert @job_current.next_jobs.last.is_exchange
+    @current.save
+
+    assert_equal next_job.user_id, @current.user.id
+    assert_equal next_job.jawatan, @current.jawatan
+    assert_equal next_job.gred, @current.gred
+    assert_equal next_job.expired_at, @current.expired_at
+
+    assert next_job.ministry_id.nil?
+    assert next_job.nota.nil?
+    assert next_job.nama_organisasi.nil?
+
+    assert next_job.is_exchange
   end
 
-  test "offer/current job should fail without nama organisasi" do
-    @job_offer.nama_organisasi = nil
-    assert @job_offer.invalid?
+  test "should fail if no next job for exchange" do
+    current = @current.dup
 
-    @job_current.nama_organisasi = nil
-    assert @job_current.invalid?
+    assert current.invalid?
+  end
+
+  test "should fail when locations for next job are duplicates" do
+    next_job = @current.next_jobs.first.dup
+    @current.next_jobs << next_job
+
+    assert next_job.invalid?
   end
 end

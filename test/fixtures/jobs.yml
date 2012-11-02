@@ -1,18 +1,29 @@
 offer:
-  user: admin
-  location: kelantan
-  title: pegawai_it
+  user: user
+  location: kota_bharu
   ministry: kkm
-  gred: 41
+  jawatan: Pegawai Teknologi Maklumat
+  gred: F41
   nama_organisasi: Hospital Raja Perempuan Zainab II
   expired_at: <%= 6.months.from_now %>
+  is_exchange: false
 
 current:
   user: user
   location: kota_bharu
-  title: pegawai_it
   ministry: kkm
-  gred: 41
+  jawatan: Pegawai Teknologi Maklumat
+  gred: F41
   nama_organisasi: Hospital Universiti Sains Malaysia
+  expired_at: <%= 6.months.from_now %>
+  is_exchange: true
+
+next:
+  current_job: current
+  user: user
+  location: kota_bharu
+  ministry: kkm
+  jawatan: Pegawai Teknologi Maklumat
+  gred: F41
   expired_at: <%= 6.months.from_now %>
   is_exchange: true
