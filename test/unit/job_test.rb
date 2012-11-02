@@ -58,18 +58,6 @@ class JobTest < ActiveSupport::TestCase
     @current.valid?
   end
 
-  test "should fail without an expiry date" do
-    @current.expired_at = nil
-
-    assert @current.invalid?
-  end
-
-  test "should fail when expiry date is earlier than the current time" do
-    @current.expired_at = Time.now - 1.day
-
-    assert @current.invalid?
-  end
-
   test "should fail without nama_organisasi" do
     @current.nama_organisasi = ""
     assert @current.invalid?
@@ -99,7 +87,6 @@ class JobTest < ActiveSupport::TestCase
     assert_equal next_job.user_id, @current.user.id
     assert_equal next_job.jawatan, @current.jawatan
     assert_equal next_job.gred, @current.gred
-    assert_equal next_job.expired_at, @current.expired_at
 
     assert next_job.ministry_id.nil?
     assert next_job.nota.nil?

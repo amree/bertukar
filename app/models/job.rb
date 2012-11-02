@@ -16,11 +16,9 @@ class Job < ActiveRecord::Base
   validates :jawatan, presence: true
   validates :gred, presence: true
   validates :gred, format: { with: /^[A-Z][1-54]+/ }, unless: "gred.blank?"
-  validates :expired_at, presence: true
   validates :nama_organisasi, presence: true, if: "is_current_job?"
   validates :location_id, uniqueness: { scope: :current_job_id }, if: "is_next_job?"
 
-  validate :verify_expired_at, unless: "expired_at.nil?"
   validate :must_have_next_job, if: "is_current_job?"
 
   before_validation :populate_fields
@@ -51,22 +49,11 @@ class Job < ActiveRecord::Base
 
   protected
 
-  def verify_expired_at
-    if expired_at < Time.now
-      errors.add(:expired_at, "must at least expired tomorrow")
-    end
-
-    if expired_at > Time.now + 6.months
-      errors.add(:expired_at, "maximum is within 6 months from now")
-    end
-  end
-
   def populate_fields
     next_jobs.each do |next_job|
       next_job.user_id = user_id
       next_job.jawatan = jawatan
       next_job.gred = gred
-      next_job.expired_at = expired_at
     end
   end
 
