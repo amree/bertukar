@@ -85,10 +85,10 @@ class JobTest < ActiveSupport::TestCase
     @current.save
 
     assert_equal next_job.user_id, @current.user.id
-    assert_equal next_job.jawatan, @current.jawatan
-    assert_equal next_job.gred, @current.gred
 
     assert next_job.ministry_id.nil?
+    assert next_job.jawatan.nil?
+    assert next_job.gred.nil?
     assert next_job.nota.nil?
     assert next_job.nama_organisasi.nil?
   end

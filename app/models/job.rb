@@ -11,15 +11,15 @@ class Job < ActiveRecord::Base
 
   validates :user, presence: true
   validates :location, presence: true
-  validates :ministry, presence: true, if: "is_current_job?"
+  validates :ministry, presence: true, unless: "is_next_job?"
 
-  validates :jawatan, presence: true
-  validates :gred, presence: true
+  validates :jawatan, presence: true, unless: "is_next_job?"
+  validates :gred, presence: true, unless: "is_next_job?"
   validates :gred, format: { with: /^[A-Z][1-54]+/ }, unless: "gred.blank?"
-  validates :nama_organisasi, presence: true, if: "is_current_job?"
+  validates :nama_organisasi, presence: true, unless: "is_next_job?"
   validates :location_id, uniqueness: { scope: :current_job_id }, if: "is_next_job?"
 
-  validate :must_have_next_job, if: "is_current_job?"
+  validate :must_have_next_job, unless: "is_next_job?"
 
   before_validation :populate_fields
 
@@ -28,12 +28,16 @@ class Job < ActiveRecord::Base
   auto_strip_attributes :nota, squish: true
   auto_strip_attributes :nama_organisasi, squish: true
 
+  attr_accessor :is_next_job
+  attr_accessible :current_job_id, :location_id, :ministry_id, :jawatan, :gred, :nota, :nama_organisasi,
+                  :next_jobs_attributes
+
   def is_current_job?
     self.current_job_id.blank?
   end
 
   def is_next_job?
-    !self.current_job_id.blank?
+    !self.current_job_id.nil? || self.is_next_job
   end
 
   def get_state
@@ -52,8 +56,7 @@ class Job < ActiveRecord::Base
   def populate_fields
     next_jobs.each do |next_job|
       next_job.user_id = user_id
-      next_job.jawatan = jawatan
-      next_job.gred = gred
+      next_job.is_next_job = true
     end
   end
 
