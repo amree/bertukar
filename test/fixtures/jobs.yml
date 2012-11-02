@@ -5,7 +5,6 @@ current:
   jawatan: Pegawai Teknologi Maklumat
   gred: F41
   nama_organisasi: Hospital Universiti Sains Malaysia
-  expired_at: <%= 6.months.from_now %>
 
 next:
   current_job: current
@@ -14,4 +13,3 @@ next:
   ministry: kkm
   jawatan: Pegawai Teknologi Maklumat
   gred: F41
-  expired_at: <%= 6.months.from_now %>
