@@ -22,13 +22,6 @@ $ ->
         $(loc).prev().val($(loc).next().val())
         $(loc).prev().trigger('change')
 
-
-  toggleNextJobs = (e) ->
-    if $(e).val() == "true"
-      $("#next-jobs").show()
-    else
-      $("#next-jobs").hide()
-
   ## Some hooks
 
   # Add another link pointing to the real link (till i know how to hook an event after the insertion)
@@ -38,11 +31,10 @@ $ ->
     setupLoc()
     return false
 
-  # Show/hide based on job's type
-  $("#job_is_exchange").change ->
-    toggleNextJobs(this)
+  # # Show/hide based on job's type
+  # $("#job_is_exchange").change ->
+  #   toggleNextJobs(this)
 
   ## Run by default
   setupLoc()
-  toggleNextJobs($("#job_is_exchange"))
   $('.add_nested_fields').hide()
