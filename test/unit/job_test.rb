@@ -100,9 +100,12 @@ class JobTest < ActiveSupport::TestCase
   end
 
   test "should fail when locations for next job are duplicates" do
-    next_job = @current.next_jobs.first.dup
-    @current.next_jobs << next_job
+    current = @current.dup
+    current.next_jobs.build
+    current.next_jobs.build
+    current.next_jobs[0].location_id = Location.first.id
+    current.next_jobs[1].location_id = Location.first.id
 
-    assert next_job.invalid?
+    assert current.invalid?
   end
 end

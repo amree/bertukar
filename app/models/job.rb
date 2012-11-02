@@ -22,6 +22,7 @@ class Job < ActiveRecord::Base
   validate :must_have_next_job, unless: "is_next_job?"
 
   before_validation :populate_fields
+  before_validation :ensure_no_duplicated_locations
 
   auto_strip_attributes :jawatan, squish: true
   auto_strip_attributes :gred, squish: true
@@ -57,6 +58,17 @@ class Job < ActiveRecord::Base
     next_jobs.each do |next_job|
       next_job.user_id = user_id
       next_job.is_next_job = true
+    end
+  end
+
+  def ensure_no_duplicated_locations
+    locs = Array.new
+    next_jobs.each do |next_job|
+      if locs.include?next_job.location_id
+        errors.add(:base, "Pastikan anda tidak memilih penempatan akan datang yang sama.")
+      else
+        locs << next_job.location_id
+      end
     end
   end
 
