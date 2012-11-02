@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121102062408) do
+ActiveRecord::Schema.define(:version => 20121102085454) do
 
   create_table "jobs", :force => true do |t|
     t.integer  "current_job_id"
@@ -24,9 +24,8 @@ ActiveRecord::Schema.define(:version => 20121102062408) do
     t.string   "nama_organisasi"
     t.datetime "expired_at"
     t.datetime "closed_at"
-    t.boolean  "is_exchange",     :default => false
-    t.datetime "created_at",                         :null => false
-    t.datetime "updated_at",                         :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
   create_table "locations", :force => true do |t|

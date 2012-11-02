@@ -11,13 +11,13 @@ class Job < ActiveRecord::Base
 
   validates :user, presence: true
   validates :location, presence: true
-  validates :ministry, presence: true, unless: "is_next_job?"
+  validates :ministry, presence: true, if: "is_current_job?"
 
   validates :jawatan, presence: true
   validates :gred, presence: true
   validates :gred, format: { with: /^[A-Z][1-54]+/ }, unless: "gred.blank?"
   validates :expired_at, presence: true
-  validates :nama_organisasi, presence: true, unless: "is_next_job?"
+  validates :nama_organisasi, presence: true, if: "is_current_job?"
   validates :location_id, uniqueness: { scope: :current_job_id }, if: "is_next_job?"
 
   validate :verify_expired_at, unless: "expired_at.nil?"
@@ -31,11 +31,11 @@ class Job < ActiveRecord::Base
   auto_strip_attributes :nama_organisasi, squish: true
 
   def is_current_job?
-    self.is_exchange && self.current_job_id.blank?
+    self.current_job_id.blank?
   end
 
   def is_next_job?
-    self.is_exchange && !self.current_job_id.blank?
+    !self.current_job_id.blank?
   end
 
   def get_state
@@ -67,7 +67,6 @@ class Job < ActiveRecord::Base
       next_job.jawatan = jawatan
       next_job.gred = gred
       next_job.expired_at = expired_at
-      next_job.is_exchange = true
     end
   end
 

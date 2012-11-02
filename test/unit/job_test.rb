@@ -2,7 +2,6 @@ require 'test_helper'
 
 class JobTest < ActiveSupport::TestCase
   setup do
-    @offer = jobs(:offer)
     @current = jobs(:current)
     @next = jobs(:next)
   end
@@ -16,67 +15,67 @@ class JobTest < ActiveSupport::TestCase
   end
 
   test "should fail without a valid user " do
-    @offer.user_id = nil
-    assert @offer.invalid?
+    @current.user_id = nil
+    assert @current.invalid?
 
-    @offer.user_id = 0
-    assert @offer.invalid?
+    @current.user_id = 0
+    assert @current.invalid?
   end
 
   test "should fail without a valid location" do
-    @offer.location_id = nil
-    assert @offer.invalid?
+    @current.location_id = nil
+    assert @current.invalid?
 
-    @offer.location_id = 0
-    assert @offer.invalid?
+    @current.location_id = 0
+    assert @current.invalid?
   end
 
   test "should fail without a ministry" do
-    @offer.ministry_id = nil
-    assert @offer.invalid?
+    @current.ministry_id = nil
+    assert @current.invalid?
 
-    @offer.ministry_id = 0
-    assert @offer.invalid?
+    @current.ministry_id = 0
+    assert @current.invalid?
   end
 
   test "should fail without a valid jawatan" do
-    @offer.jawatan = nil
-    assert @offer.invalid?
+    @current.jawatan = nil
+    assert @current.invalid?
 
-    @offer.jawatan = ""
-    assert @offer.invalid?
+    @current.jawatan = ""
+    assert @current.invalid?
   end
 
   test "should fail without gred" do
-    @offer.gred = nil
+    @current.gred = nil
 
-    assert @offer.invalid?
+    assert @current.invalid?
   end
 
   test "should pass with the correct gred" do
-    @offer.gred = "F41"
+    @current.gred = "F41"
 
-    assert @offer.valid?
+    @current.valid?
   end
 
   test "should fail without an expiry date" do
-    @offer.expired_at = nil
+    @current.expired_at = nil
 
-    assert @offer.invalid?
+    assert @current.invalid?
   end
 
   test "should fail when expiry date is earlier than the current time" do
-    @offer.expired_at = Time.now - 1.day
+    @current.expired_at = Time.now - 1.day
 
-    assert @offer.invalid?
+    assert @current.invalid?
   end
 
   test "should fail without nama_organisasi" do
-    @offer.nama_organisasi = ""
-    assert @offer.invalid?
+    @current.nama_organisasi = ""
+    assert @current.invalid?
 
-    @offer.nama_organisasi = nil
-    assert @offer.invalid?
+    @current.nama_organisasi = nil
+    assert @current.invalid?
   end
 
   test "next job should pass without ministry" do
@@ -105,8 +104,6 @@ class JobTest < ActiveSupport::TestCase
     assert next_job.ministry_id.nil?
     assert next_job.nota.nil?
     assert next_job.nama_organisasi.nil?
-
-    assert next_job.is_exchange
   end
 
   test "should fail if no next job for exchange" do
