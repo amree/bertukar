@@ -9,7 +9,7 @@ gem 'devise', '~> 2.1.2'
 gem 'thin'
 gem 'nested_form', '~> 0.3.0'
 gem 'ransack', '~> 0.7.0'
-gem 'simple-navigation'
+gem 'simple-navigation', '~> 3.9.0'
 gem 'awesome_print', '~> 1.0.2'
 
 # Gems used only for assets and not required

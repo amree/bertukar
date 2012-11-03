@@ -191,7 +191,7 @@ DEPENDENCIES
   ransack (~> 0.7.0)
   rb-fsevent (~> 0.9.1)
   sass-rails (~> 3.2.3)
-  simple-navigation
+  simple-navigation (~> 3.9.0)
   spin (~> 0.5.3)
   therubyracer
   thin
