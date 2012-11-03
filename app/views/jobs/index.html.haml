@@ -1,39 +1,51 @@
 .page-header
-  %h1
-    Jawatan
+  %h1.pull-left
+    Iklan
     %small
-      Senarai jawatan yang anda iklankan
+      Jawatan yang diiklankan
+  .page-actions.pull-right
+    = link_to "Iklan Baru", new_job_path, class: "btn btn-primary"
+  .clearfix
 
-.row
+.row-fluid
   .span12
-    %table.table.table-striped
-      %thead
-        %tr
-          %th #
-          %th Lokasi
-          %th Gred
-          %th Nama Organisasi
-          %th Tarikh Luput
-          %th Status
-          %th Tarikh Dibuat
-          %th
-      %tbody
-        - @jobs.each.with_index do |job, index|
+    - if @jobs.length > 0
+      %table.table.table-striped
+        %thead
           %tr
-            %td= index + 1
-            %td
-              = job.location.nama
-              = job.location.state.nama
-            %td= job.gred
-            %td= job.nama_organisasi
-            %td= job.expired_at
-            %td
-            %td= time_ago_in_words(job.created_at)
-            %td
-              = link_to 'Show', job
-              = link_to 'Edit', edit_job_path(job)
-              = link_to 'Destroy', job, :confirm => 'Are you sure?', :method => :delete
+            %th #
+            %th Lokasi Lama
+            %th Lokasi Baru
+            %th Gred
+            %th Masa Iklan
+            %th
+        %tbody
+          - @jobs.each.with_index do |job, index|
+            %tr
+              %td= index + 1
+              %td
+                = "#{job.location.nama}, #{job.location.state.nama}"
+              %td
+                - if job.next_jobs.length == 1
+                  = "#{job.next_jobs[0].location.nama}, #{job.next_jobs[0].location.state.nama}"
+                - elsif job.next_jobs.length > 1
+                  %ul
+                    - job.next_jobs.each do |next_job|
+                      %li
+                        = "#{next_job.location.nama}, #{next_job.location.state.nama}"
+                - else
+                  \-
 
-%br
-
-= link_to 'New Job', new_job_path
+              %td= job.gred
+              %td
+                = time_ago_in_words(job.created_at)
+              %td.right
+                .btn-group
+                  = link_to job, class: "btn btn-small" do
+                    %i.icon-eye-open
+                  = link_to edit_job_path(job), class: "btn btn-small" do
+                    %i.icon-pencil
+                  = link_to job, :data => { :confirm => 'Are you sure?' }, :method => :delete, class: "btn btn-small btn-danger" do
+                    %i.icon-trash.icon-white
+    - else
+      Tiada iklan.

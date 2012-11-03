@@ -1,33 +1,59 @@
-%p#notice= notice
+.row-fluid
+  .row-fluid
+    .span12
+      .page-header
+        %h2
+          Penempatan Sekarang
 
-%p
-  %b User:
-  = @job.user_id
-%p
-  %b Location:
-  = @job.location_id
-%p
-  %b Title:
-  = @job.title_id
-%p
-  %b Ministry:
-  = @job.ministry_id
-%p
-  %b Gred:
-  = @job.gred
-%p
-  %b Nota:
-  = @job.nota
-%p
-  %b Nama Organisasi:
-  = @job.nama_organisasi
-%p
-  %b Expired at:
-  = @job.expired_at
-%p
-  %b Is Exchange:
-  = @job.is_exchange
+      %p
+        %span.span3
+          Lokasi:
+        = "#{@job.location.nama}, #{@job.location.state.nama}"
+      %p
+        %span.span3
+          Kementerian:
+        = @job.ministry.nama
+      %p
+        %span.span3
+          Nama Organisasi:
+        = @job.nama_organisasi
+      %p
+        %span.span3
+          Jawatan:
+        = @job.jawatan
+      %p
+        %span.span3
+          Gred:
+        %b
+          = @job.gred
+      %p
+        %span.span3
+          Nota:
+        = dash_if_nil(@job.nota)
 
-= link_to 'Edit', edit_job_path(@job)
-\|
-= link_to 'Back', jobs_path
+  .row-fluid
+    .span12
+      .page-header
+        %h2
+          Penempatan yang Dicari
+
+      - if @job.next_jobs.length == 1
+        = "#{@job.next_jobs[0].location.nama}, #{@job.next_jobs[0].location.state.nama}"
+      - elsif @job.next_jobs.length > 1
+        %ul
+          - @job.next_jobs.each do |next_job|
+            %li
+              = "#{next_job.location.nama}, #{next_job.location.state.nama}"
+      - else
+        \-
+
+  .row-fluid
+    .span12
+      .page-header
+        %h2
+          Hubungi
+
+      %p
+        %span.span3
+          E-Mail:
+        = @job.user.email

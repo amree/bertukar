@@ -1,5 +1,4 @@
 module ApplicationHelper
-  # Highlight form field if there's any error
   def normal_div_if(condition, attributes = {}, &block)
     if condition
       attributes["class"] = "control-group"
@@ -9,7 +8,6 @@ module ApplicationHelper
     content_tag("div", attributes, &block)
   end
 
-  # TODO: Test show_flash
   def show_flash(notice, alert)
     type = notice.blank? ? "error" : "success"
 
@@ -23,7 +21,6 @@ module ApplicationHelper
     raw html
   end
 
-  # TODO: Test show_location
   def show_location(location)
     unless location.blank?
       text = location.nama
@@ -31,5 +28,9 @@ module ApplicationHelper
         text = "#{location.state.nama}, #{location.nama}"
       end
     end
+  end
+
+  def dash_if_nil(val)
+    val.nil? || val.strip == "" ? "-" : val
   end
 end
