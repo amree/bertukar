@@ -9,3 +9,7 @@ class ActiveSupport::TestCase
   # -- they do not yet inherit this setting
   fixtures :all
 end
+
+class ActionController::TestCase
+  include Devise::TestHelpers
+end
