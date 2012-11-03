@@ -1,5 +1,4 @@
 module ApplicationHelper
-  # TODO: Test normal_div_if
   # Highlight form field if there's any error
   def normal_div_if(condition, attributes = {}, &block)
     if condition
