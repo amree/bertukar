@@ -21,15 +21,6 @@ module ApplicationHelper
     raw html
   end
 
-  def show_location(location)
-    unless location.blank?
-      text = location.nama
-      unless location.state.nil?
-        text = "#{location.state.nama}, #{location.nama}"
-      end
-    end
-  end
-
   def dash_if_nil(val)
     val.nil? || val.strip == "" ? "-" : val
   end
