@@ -1,15 +1,22 @@
 !!! 5
-%html{ :xmlns => "http://www.w3.org/1999/xhtml", :lang => "en", 'xml:lang' => "en" }
+%html{ lang: "en" }
   %head
     %title Bertukar
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
   %body
-    .container
-      .header
+    .container-narrow
+      .masthead
         = render_navigation renderer: :bootstrap_pills
-
+        %h3.muted
+          Bertukar
+      %hr
       = show_flash(notice, alert)
 
       = yield
+
+      %hr
+      %footer
+        %p
+          © 2012
