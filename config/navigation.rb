@@ -10,6 +10,8 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :login, 'Login', new_user_session_path, if: Proc.new { current_user.nil? }
     primary.item :jawatan, 'Iklan', jobs_path, unless: Proc.new { current_user.nil? }
     primary.item :akaun, 'Akaun', edit_user_registration_path, unless: Proc.new { current_user.nil? }
+    primary.item :ministry, 'Kementerian', admin_ministries_path, unless: Proc.new { current_user.nil? }
+    primary.item :location, 'Lokasi', admin_locations_path, unless: Proc.new { current_user.nil? }
     primary.item :logout, 'Logout', destroy_user_session_path, method: :delete, unless: Proc.new { current_user.nil? }
   end
 end
