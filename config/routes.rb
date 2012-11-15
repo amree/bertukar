@@ -9,7 +9,6 @@ Bertukar::Application.routes.draw do
   namespace :admin do
     resources :locations
     resources :ministries
-    resources :titles
   end
 
   root :to => 'search#index'
