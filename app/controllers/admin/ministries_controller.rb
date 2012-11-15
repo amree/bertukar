@@ -42,11 +42,13 @@ class Admin::MinistriesController < ApplicationController
   end
 
   # DELETE /ministries/1
-  # DELETE /ministries/1.json
   def destroy
     @ministry = Ministry.find(params[:id])
-    @ministry.destroy
 
-    redirect_to admin_ministries_url
+    if @ministry.destroy
+      redirect_to admin_ministries_url
+    else
+      redirect_to [:admin, @ministry], alert: @ministry.errors.full_messages.first
+    end
   end
 end
