@@ -29,4 +29,8 @@ class MinistryTest < ActiveSupport::TestCase
 
     assert_equal @kkm.nama, title.titleize
   end
+
+  test "should not delete ministry in use" do
+    assert !@kkm.destroy
+  end
 end
