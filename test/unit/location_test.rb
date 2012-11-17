@@ -29,4 +29,10 @@ class LocationTest < ActiveSupport::TestCase
       @kelantan.destroy
     end
   end
+
+  test "should not destroy location being used by any job" do
+    assert_no_difference('Location.count') do
+      @kota_bharu.destroy
+    end
+  end
 end
