@@ -44,8 +44,11 @@ class Admin::LocationsController < ApplicationController
   # DELETE /admin/locations/1
   def destroy
     @location = Location.find(params[:id])
-    @location.destroy
 
-    redirect_to admin_locations_url
+    if @location.destroy
+      redirect_to admin_locations_url
+    else
+      redirect_to [:admin, @location], alert: @location.errors.full_messages.first
+    end
   end
 end
