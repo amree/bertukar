@@ -1,0 +1,38 @@
+.page-header
+  %h1.pull-left
+    Pengguna
+  .page-actions.pull-right
+    .btn-group
+      %button.btn.btn-primary
+        Actions
+      %button.btn.btn-primary.dropdown-toggle{ :"data-toggle" => "dropdown" }
+        %span.caret
+      %ul.dropdown-menu.pull-right
+        %li
+          = link_to "Padam", [:admin, @user], :data => { :confirm => 'Are you sure?' }, :method => :delete
+  .clearfix
+
+.row-fluid
+  .span3.right
+    %strong
+      E-Mail:
+  .span9
+    = @user.email
+.row-fluid
+  .span3.right
+    %strong
+      Sign in count:
+  .span9
+    = @user.sign_in_count
+.row-fluid
+  .span3.right
+    %strong
+      Created at:
+  .span9
+    = time_ago_in_words(@user.created_at)
+.row-fluid
+  .span3.right
+    %strong
+      Updated at:
+  .span9
+    = time_ago_in_words(@user.updated_at)

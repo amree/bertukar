@@ -1,0 +1,32 @@
+.page-header
+  %h1
+    Senarai Pengguna
+
+.row-fluid
+  .span12
+    - if @users.length > 0
+      %table.table.table-striped
+        %thead
+          %tr
+            %th #
+            %th E-Mail
+            %th Count
+            %th Created At
+            %th Updated At
+            %th
+        %tbody
+          - @users.each.with_index do |user, index|
+            %tr
+              %td= index + 1
+              %td= user.email
+              %td= user.sign_in_count
+              %td= time_ago_in_words(user.created_at)
+              %td= time_ago_in_words(user.updated_at)
+              %td.right
+                .btn-group
+                  = link_to [:admin, user], class: "btn btn-small" do
+                    %i.icon-eye-open
+                  = link_to [:admin, user], :data => { :confirm => 'Are you sure?' }, :method => :delete, class: "btn btn-small btn-danger" do
+                    %i.icon-trash.icon-white
+    - else
+      Tiada pengguna.

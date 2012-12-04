@@ -13,6 +13,7 @@ SimpleNavigation::Configuration.run do |navigation|
     primary.item :ministry, 'Kementerian', admin_ministries_path, unless: Proc.new { current_user.nil? }
     primary.item :location, 'Lokasi', admin_locations_path, unless: Proc.new { current_user.nil? }
     primary.item :jobs, 'Iklan', admin_jobs_path, unless: Proc.new { current_user.nil? }
+    primary.item :users, 'Pengguna', admin_users_path, unless: Proc.new { current_user.nil? }
     primary.item :logout, 'Logout', destroy_user_session_path, method: :delete, unless: Proc.new { current_user.nil? }
   end
 end

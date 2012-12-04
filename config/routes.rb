@@ -10,6 +10,7 @@ Bertukar::Application.routes.draw do
     resources :locations
     resources :ministries
     resources :jobs, only: [:index, :show]
+    resources :users, only: [:index, :show, :destroy]
   end
 
   root :to => 'search#index'
