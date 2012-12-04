@@ -75,5 +75,7 @@ module Bertukar
       Devise::RegistrationsController.skip_before_filter :require_authentication
       Devise::PasswordsController.skip_before_filter :require_authentication
     end
+
+    config.assets.initialize_on_precompile = false
   end
 end
