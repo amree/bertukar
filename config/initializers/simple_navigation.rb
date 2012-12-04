@@ -1,1 +1,0 @@
-SimpleNavigation.register_renderer bootstrap_pills: BootstrapPills
