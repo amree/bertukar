@@ -4,3 +4,7 @@ kelantan:
 kota_bharu:
   state: kelantan
   nama: Kota Bharu
+
+pasir_mas:
+  state: kelantan
+  nama: Pasir Mas

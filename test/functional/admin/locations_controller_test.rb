@@ -6,6 +6,7 @@ class Admin::LocationsControllerTest < ActionController::TestCase
 
     @location = locations(:kelantan)
     @kb = locations(:kota_bharu)
+    @pmas = locations(:pasir_mas)
 
     @valid_data = { "nama" => "Pahang" }
   end
@@ -50,7 +51,7 @@ class Admin::LocationsControllerTest < ActionController::TestCase
   test "POST redirects to the last current created location" do
     post :create, location: @valid_data
 
-    assert_redirected_to admin_location_path(Location.last)
+    assert_redirected_to admin_location_path(Location.unscoped.last)
   end
 
   test "PUT assigns the correct location" do
@@ -67,12 +68,12 @@ class Admin::LocationsControllerTest < ActionController::TestCase
 
   test "DELETE destroy" do
     assert_difference("Location.count", -1) do
-      delete :destroy, id: @kb.to_param
+      delete :destroy, id: @pmas.to_param
     end
   end
 
   test "DELETE redirect to locations list" do
-    delete :destroy, id: @kb.to_param
+    delete :destroy, id: @pmas.to_param
 
     assert_redirected_to admin_locations_url
   end
@@ -84,8 +85,10 @@ class Admin::LocationsControllerTest < ActionController::TestCase
   end
 
   test "DELETE location in use should fail" do
-    delete :destroy, id: @kb.to_param
+    assert_difference("Location.count", 0) do
+      delete :destroy, id: @kb.to_param
+    end
 
-    assert_redirected_to [:admin, @location]
+    assert_redirected_to [:admin, @kb]
   end
 end

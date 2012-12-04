@@ -46,7 +46,7 @@ class Admin::LocationsController < ApplicationController
     @location = Location.find(params[:id])
 
     if @location.destroy
-      redirect_to admin_locations_url
+      redirect_to admin_locations_url, notice: "#{@location.nama} deleted."
     else
       redirect_to [:admin, @location], alert: @location.errors.full_messages.first
     end
