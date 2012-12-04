@@ -1,4 +1,6 @@
 class Admin::JobsController < ApplicationController
+  before_filter :require_admin
+
   # GET /admin/jobs
   def index
     @jobs = Job.all

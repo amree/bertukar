@@ -1,4 +1,6 @@
 class SearchController < ApplicationController
+  skip_before_filter :require_authentication
+
   def index
     if params[:q].nil?
       @noresult = true

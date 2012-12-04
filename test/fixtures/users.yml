@@ -1,6 +1,7 @@
 admin:
   email: admin@email.com
   encrypted_password: $2a$10$tdSn9IUH8zZc5JzlqC7yDuEh1/hGlUpTX6W2bLWzdjpuNbYketj/O
+  admin: true
 
 user:
   email: user@email.com

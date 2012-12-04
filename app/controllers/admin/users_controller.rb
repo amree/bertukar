@@ -1,5 +1,7 @@
 class Admin::UsersController < ApplicationController
-  # GET /admin/jobs
+  before_filter :require_admin
+
+ # GET /admin/jobs
   def index
     @users = User.all
   end

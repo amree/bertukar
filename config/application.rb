@@ -69,5 +69,11 @@ module Bertukar
       g.javascripts false
       g.helper false
     end
+
+    config.to_prepare do
+      Devise::SessionsController.skip_before_filter :require_authentication
+      Devise::RegistrationsController.skip_before_filter :require_authentication
+      Devise::PasswordsController.skip_before_filter :require_authentication
+    end
   end
 end

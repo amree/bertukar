@@ -1,4 +1,6 @@
 class Admin::LocationsController < ApplicationController
+  before_filter :require_admin
+
   # GET /admin/locations
   def index
     @locations = Location.all

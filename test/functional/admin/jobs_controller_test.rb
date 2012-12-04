@@ -2,6 +2,8 @@ require 'test_helper'
 
 class Admin::JobsControllerTest < ActionController::TestCase
   def setup
+    sign_in users(:admin)
+
     @current = jobs(:current)
   end
 

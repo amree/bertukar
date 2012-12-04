@@ -1,4 +1,6 @@
 class Admin::MinistriesController < ApplicationController
+  before_filter :require_admin
+
   # GET /ministries
   def index
     @ministries = Ministry.all

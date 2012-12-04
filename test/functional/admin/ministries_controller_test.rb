@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::MinistriesControllerTest < ActionController::TestCase
   setup do
-    sign_in users(:user)
+    sign_in users(:admin)
 
     @ministry = ministries(:kkm)
     @kpt = ministries(:kpt)

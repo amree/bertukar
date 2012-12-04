@@ -2,7 +2,7 @@ require 'test_helper'
 
 class Admin::LocationsControllerTest < ActionController::TestCase
   setup do
-    sign_in users(:user)
+    sign_in users(:admin)
 
     @location = locations(:kelantan)
     @kb = locations(:kota_bharu)
