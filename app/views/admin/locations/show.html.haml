@@ -1,12 +1,29 @@
-%p#notice= notice
+.page-header
+  %h1.pull-left
+    Lokasi
+  .page-actions.pull-right
+    .btn-group
+      %button.btn.btn-primary
+        Actions
+      %button.btn.btn-primary.dropdown-toggle{ :"data-toggle" => "dropdown" }
+        %span.caret
+      %ul.dropdown-menu.pull-right
+        %li
+          = link_to "Kemaskini", edit_admin_location_path(@location)
+        %li.divider
+        %li
+          = link_to "Padam", [:admin, @location], :data => { :confirm => 'Are you sure?' }, :method => :delete
+  .clearfix
 
-%p
-  %b State:
-  = @location.state_id
-%p
-  %b Nama:
-  = @location.nama
-
-= link_to 'Edit', edit_admin_location_path(@location)
-\|
-= link_to 'Back', admin_locations_path
+.row-fluid
+  .span2.right
+    %strong
+      Nama Negeri:
+  .span10
+    = @location.state.nama if @location.state
+.row-fluid
+  .span2.right
+    %strong
+      Nama:
+  .span10
+    = @location.nama
