@@ -53,7 +53,7 @@
                   = time_ago_in_words(job.created_at)
                   ago
                 %td.right
-                  = link_to job, class: "btn btn-small" do
+                  = link_to search_path(job), class: "btn btn-small" do
                     %i.icon-eye-open
       - else
         Tiada keputusan.
