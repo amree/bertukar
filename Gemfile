@@ -1,6 +1,5 @@
 source 'http://rubygems.org'
 
-ruby '1.9.3'
 gem 'rails', '3.2.8'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.11'
@@ -11,7 +10,6 @@ gem 'thin'
 gem 'nested_form', '~> 0.3.0'
 gem 'ransack', '~> 0.7.0'
 gem 'awesome_print', '~> 1.0.2'
-gem 'heroku'
 
 # Gems used only for assets and not required
 # in production environments by default.
