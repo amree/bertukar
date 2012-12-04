@@ -9,6 +9,7 @@ Bertukar::Application.routes.draw do
   namespace :admin do
     resources :locations
     resources :ministries
+    resources :jobs, only: [:index, :show]
   end
 
   root :to => 'search#index'
