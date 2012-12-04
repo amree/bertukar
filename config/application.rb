@@ -76,6 +76,7 @@ module Bertukar
       Devise::PasswordsController.skip_before_filter :require_authentication
     end
 
+    # https://devcenter.heroku.com/articles/rails3x-asset-pipeline-cedar
     config.assets.initialize_on_precompile = false
   end
 end
