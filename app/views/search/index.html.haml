@@ -1,4 +1,4 @@
-- if current_user.nil?
+- if current_user.nil? && @noresult
   .jumbotron
     %h1
       Tingkatkan peluang pertukaran anda!
@@ -7,17 +7,10 @@
       tapi tiada tempat untuk iklankan jawatan anda. Dengan aplikasi ini ianya pasti dapat mencerahkan
       lagi peluang anda.
     = link_to "Daftar untuk buat iklan", new_user_registration_path, class: "btn btn-large btn-success"
-
-.row-fluid
-  .align-center.well
-    #searchbox
-      = search_form_for @q, url: search_index_path, html: { method: :get, class: "form-inline" } do |f|
-        = f.text_field :gred_eq, class: "span1", placeholder: "F41"
-        = f.collection_select :location_id_or_location_state_id_eq, Location.states, :id, :nama, { include_blank: true }
-        = f.submit "Buat Carian", class: "btn btn-primary"
-
-.row-fluid
-  - unless @noresult
+  = render 'search/search_box'
+- else
+  = render 'search/search_box'
+  .row-fluid
     .span12
     - if @jobs.length > 0
       %table.table.table-striped
