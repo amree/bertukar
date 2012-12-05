@@ -5,13 +5,13 @@ mysql: &mysql
   password:
 
 development:
-  database: pertukaran_development
+  database: bertukar_development
   <<: *mysql
 
 test:
-  database: pertukaran_test
+  database: bertukar_test
   <<: *mysql
 
 production:
-  database: pertukaran
+  database: bertukar
   <<: *mysql
