@@ -30,3 +30,34 @@ ActiveRecord::Base.transaction do
     end # unless
   end # states
 end
+
+ministries = Array.new
+ministries << "Jabatan Perdana Menteri"
+ministries << "Kementerian Belia dan Sukan"
+ministries << "Kementerian Penerangan Komunikasi Dan Kebudayaan"
+ministries << "Kementerian Kemajuan Luar Bandar dan Wilayah"
+ministries << "Kementerian Kerja Raya"
+ministries << "Kementerian Dalam Negeri"
+ministries << "Kementerian Kesihatan"
+ministries << "Kementerian Kewangan"
+ministries << "Kementerian Luar"
+ministries << "Kementerian Pelajaran"
+ministries << "Kementerian Pelancongan"
+ministries << "Kementerian Pembangunan Wanita, Keluarga dan Masyarakat"
+ministries << "Kementerian Pengajian Tinggi"
+ministries << "Kementerian Pengangkutan"
+ministries << "Kementerian Perdagangan Antarabangsa dan Industri"
+ministries << "Kementerian Perdagangan Dalam Negeri dan Hal Ehwal Pengguna"
+ministries << "Kementerian Pertahanan"
+ministries << "Kementerian Pertanian dan Industri Asas Tani"
+ministries << "Kementerian Perumahan dan Kerajaan Tempatan"
+ministries << "Kementerian Perusahaan Perladangan dan Komoditi"
+ministries << "Kementerian Sains, Teknologi dan Inovasi"
+ministries << "Kementerian Sumber Asli dan Alam Sekitar"
+ministries << "Kementerian Sumber Manusia"
+ministries << "Kementerian Wilayah Persekutuan"
+
+
+ministries.each do |ministry|
+  Ministry.create(nama: ministry, is_aktif: true)
+end
