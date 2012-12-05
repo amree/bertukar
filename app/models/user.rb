@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :jobs
+  has_many :jobs, dependent: :destroy
 
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
