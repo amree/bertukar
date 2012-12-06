@@ -32,6 +32,10 @@ class Job < ActiveRecord::Base
   attr_accessible :current_job_id, :location_id, :ministry_id, :jawatan, :gred, :nota, :nama_organisasi,
                   :next_jobs_attributes
 
+  def to_param
+    "#{id}-#{gred}-#{location.nama}".downcase.gsub(/[^[:alnum:]]/, '-')
+  end
+
   def is_current_job?
     self.current_job_id.blank?
   end

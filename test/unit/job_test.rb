@@ -114,4 +114,8 @@ class JobTest < ActiveSupport::TestCase
 
     assert Job.find_by_id(@next).nil?
   end
+
+  test "should generate the correct friendly url" do
+    assert_equal @current.to_param, "#{@current.id}-f41-kota-bharu"
+  end
 end
