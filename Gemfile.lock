@@ -191,7 +191,7 @@ DEPENDENCIES
   rails (= 3.2.8)
   ransack (~> 0.7.0)
   rb-fsevent (~> 0.9.1)
-  recaptcha
+  recaptcha (~> 0.3.4)
   sass-rails (~> 3.2.3)
   spin (~> 0.5.3)
   therubyracer

@@ -11,7 +11,7 @@ gem 'thin'
 gem 'nested_form', '~> 0.3.0'
 gem 'ransack', '~> 0.7.0'
 gem 'awesome_print', '~> 1.0.2'
-gem 'recaptcha', :require => 'recaptcha/rails'
+gem 'recaptcha', '~> 0.3.4', :require => 'recaptcha/rails'
 gem 'google-analytics-rails', '~> 0.0.3'
 
 # Gems used only for assets and not required
