@@ -4,6 +4,4 @@ log/*.log
 tmp/
 .sass-cache/
 config/database.yml
-config/initializers/recaptcha.rb
-config/environments/production.rb
 .routes/*
