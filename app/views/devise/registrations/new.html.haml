@@ -30,5 +30,9 @@
           %span.help-inline
             = resource.errors[:password_confirmation].join(", ")
 
+      .control-group
+        .controls
+          = recaptcha_tags
+
       .form-actions
         = f.submit "Daftar", class: "btn btn-primary"
