@@ -9,6 +9,8 @@ class Admin::JobsController < ApplicationController
   # GET /admin/jobs/1
   def show
     @job = Job.find(params[:id])
+
+    render 'jobs/job'
   end
 
   # DELETE /admin/jobs/1

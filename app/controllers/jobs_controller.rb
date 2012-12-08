@@ -7,6 +7,8 @@ class JobsController < ApplicationController
   # GET /jobs/1
   def show
     @job = current_user.jobs.find(params[:id])
+
+    render 'jobs/job'
   end
 
   # GET /jobs/new

@@ -14,5 +14,7 @@ class SearchController < ApplicationController
 
   def show
     @job = Job.find(params[:id])
+
+    render 'jobs/job'
   end
 end
