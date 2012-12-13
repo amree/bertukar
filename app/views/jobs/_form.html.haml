@@ -10,7 +10,7 @@
 
   .row
     = normal_div_if @job.errors[:location_id].empty? do
-      = f.label :location_id, "Lokasi", class: "control-label"
+      = f.label :location_id, "Lokasi Sekarang", class: "control-label"
       .controls
         = render 'location_fields', f: f, state: @job.get_state, location: @job.location_id
         %span.help-inline
