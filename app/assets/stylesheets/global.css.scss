@@ -61,3 +61,8 @@ td.right {
   font-size: 21px;
   padding: 14px 24px;
 }
+
+/* Override Facebook comment box size */
+.fb-comments, .fb-comments * {
+  width:100% !important;
+}
