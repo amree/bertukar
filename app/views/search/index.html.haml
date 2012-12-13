@@ -1,4 +1,4 @@
-- if current_user.nil? && @noresult
+- if current_user.nil? && !@searched
   .jumbotron
     %h1
       Tingkatkan peluang pertukaran anda!
@@ -12,7 +12,7 @@
   = render 'search/search_box'
   .row-fluid
     .span12
-    - if @jobs.length > 0
+    - unless @jobs.blank?
       %table.table.table-striped
         %thead
           %tr
@@ -47,4 +47,5 @@
                 = link_to search_path(job), class: "btn btn-small" do
                   %i.icon-eye-open
     - else
-      Tiada keputusan.
+      - if @searched
+        Tiada keputusan.

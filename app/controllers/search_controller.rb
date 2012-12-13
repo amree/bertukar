@@ -3,13 +3,13 @@ class SearchController < ApplicationController
 
   def index
     if params[:q].nil?
-      @noresult = true
+      @searched = false
+      @q = Job.main.search(params[:q])
     else
-      @noresult = false
+      @searched = true
+      @q = Job.main.search(params[:q])
+      @jobs = @q.result
     end
-
-    @q = Job.main.search(params[:q])
-    @jobs = @q.result
   end
 
   def show
