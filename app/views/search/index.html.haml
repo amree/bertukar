@@ -46,6 +46,9 @@
               %td.right
                 = link_to search_path(job), class: "btn btn-small" do
                   %i.icon-eye-open
+
+      = paginate @jobs
+
     - else
       - if @searched
         Tiada keputusan.

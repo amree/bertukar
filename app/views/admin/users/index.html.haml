@@ -28,5 +28,8 @@
                     %i.icon-eye-open
                   = link_to [:admin, user], :data => { :confirm => 'Are you sure?' }, :method => :delete, class: "btn btn-small btn-danger" do
                     %i.icon-trash.icon-white
+
+      = paginate @users
+
     - else
       Tiada pengguna.

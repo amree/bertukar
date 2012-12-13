@@ -8,7 +8,7 @@ class SearchController < ApplicationController
     else
       @searched = true
       @q = Job.main.search(params[:q])
-      @jobs = @q.result
+      @jobs = @q.result.page params[:page]
     end
   end
 

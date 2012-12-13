@@ -47,5 +47,8 @@
                     %i.icon-pencil
                   = link_to job, :data => { :confirm => 'Are you sure?' }, :method => :delete, class: "btn btn-small btn-danger" do
                     %i.icon-trash.icon-white
+
+      = paginate @jobs
+
     - else
       Tiada iklan.
