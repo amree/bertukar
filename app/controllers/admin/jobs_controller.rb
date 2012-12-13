@@ -3,7 +3,7 @@ class Admin::JobsController < ApplicationController
 
   # GET /admin/jobs
   def index
-    @jobs = Job.all
+    @jobs = Job.main.page params[:page]
   end
 
   # GET /admin/jobs/1
