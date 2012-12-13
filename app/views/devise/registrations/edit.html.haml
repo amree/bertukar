@@ -9,6 +9,20 @@
     = form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, class: "form-horizontal" } do |f|
       %fieldset
 
+      = normal_div_if resource.errors[:full_name].empty? do
+        = f.label "Nama penuh", class: "control-label"
+        .controls
+          = f.text_field :full_name, placeholder: "Muhammad bin Ali"
+          %span.help-inline
+            = resource.errors[:full_name].join(", ")
+
+      = normal_div_if resource.errors[:phone].empty? do
+        = f.label "Telefon", class: "control-label"
+        .controls
+          = f.text_field :phone, class: "span3", placeholder: "0199123456"
+          %span.help-inline
+            = resource.errors[:phone].join(", ")
+
       = normal_div_if resource.errors[:email].empty? do
         = f.label :email, class: "control-label"
         .controls

@@ -53,13 +53,26 @@
         %h3
           Hubungi
 
-      %p
-        - if current_user
+      - if current_user
+        - if @job.user.full_name
+          %p
+            %span.span3
+              Nama Penuh:
+            = @job.user.full_name
+
+        - if @job.user.phone
+          %p
+            %span.span3
+              No. Telefon:
+            = @job.user.phone
+
+        %p
           %span.span3
             E-Mail:
           = @job.user.email
-        - else
-          Sila login atau daftar terlebih dahulu untuk melihat cara untuk menghubungi pengiklan ini.
+
+      - else
+        Sila login atau daftar terlebih dahulu untuk melihat cara untuk menghubungi pengiklan ini.
 
   .row-fluid
     .span12
