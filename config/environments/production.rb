@@ -60,7 +60,4 @@ Bertukar::Application.configure do
 
   # Devise
   config.action_mailer.default_url_options = { :host => 'pertukaran.herokuapp.com' }
-
-  # For Google Analytics
-  GA.tracker = "UA-1068163-8"
 end
