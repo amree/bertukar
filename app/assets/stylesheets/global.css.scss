@@ -66,3 +66,12 @@ td.right {
 .fb-comments, .fb-comments * {
   width:100% !important;
 }
+
+/* Header Link */
+h3 a {
+  color: #000;
+}
+
+h3 a:hover {
+  text-decoration: none;
+}

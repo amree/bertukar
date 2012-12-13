@@ -12,7 +12,8 @@
       .masthead
         = render 'layouts/menu'
         %h3.muted
-          Bertukar
+          = link_to "Bertukar", root_path
+
       %hr
       = show_flash(notice, alert)
 
