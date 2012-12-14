@@ -10,21 +10,21 @@
       %fieldset
 
       = normal_div_if resource.errors[:full_name].empty? do
-        = f.label "Nama penuh", class: "control-label"
+        = f.label :full_name, "Nama penuh", class: "control-label"
         .controls
           = f.text_field :full_name, placeholder: "Muhammad bin Ali"
           %span.help-inline
             = resource.errors[:full_name].join(", ")
 
       = normal_div_if resource.errors[:phone].empty? do
-        = f.label "Telefon", class: "control-label"
+        = f.label :phone, "No. Telefon", class: "control-label"
         .controls
           = f.text_field :phone, class: "span3", placeholder: "0199123456"
           %span.help-inline
             = resource.errors[:phone].join(", ")
 
       = normal_div_if resource.errors[:email].empty? do
-        = f.label "E-Mail*", class: "control-label"
+        = f.label :email, "E-Mail*", class: "control-label"
         .controls
           = f.email_field :email
           %span.help-inline
@@ -48,5 +48,18 @@
         .controls
           = recaptcha_tags
 
+      = normal_div_if resource.errors[:terms].empty? do
+        .controls
+          .checkbox
+            = f.check_box :terms
+            Saya telah baca dan faham dengan
+            = link_to "rules dan conditions", "#rules", role: "button", :"data-toggle" => "modal"
+            laman web ini
+            %span.help-inline
+              - unless resource.errors[:terms].blank?
+                = "(#{resource.errors[:terms].join(", ")})"
+
       .form-actions
         = f.submit "Daftar", class: "btn btn-primary"
+
+= render 'layouts/terms'
