@@ -19,6 +19,10 @@
           %li
             %a{ href: admin_users_path } Pengguna
     %li
+      %a{ href: 'https://www.facebook.com/bertukar' } Facebook
+    %li
+      %a{ href: about_path } About
+    %li
       %a{ href: destroy_user_session_path, :"data-method" => :delete } Logout
   - else
     %li
@@ -27,5 +31,7 @@
       %a{ href: new_user_registration_path } Daftar
     %li
       %a{ href: new_user_session_path } Login
+    %li
+      %a{ href: about_path } About
 
 

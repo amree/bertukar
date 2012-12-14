@@ -1,5 +1,7 @@
 Bertukar::Application.routes.draw do
 
+  match '/about' => 'pages#about'
+
   resources :search, only: [:index, :show]
 
   devise_for :users, controllers: { registrations: 'registrations' }
