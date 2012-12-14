@@ -1,4 +1,6 @@
 class JobsController < ApplicationController
+  skip_before_filter :require_authentication, only: :show
+
   # GET /jobs
   def index
     @jobs = current_user.jobs.main.page params[:page]
