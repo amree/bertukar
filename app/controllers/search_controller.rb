@@ -11,10 +11,4 @@ class SearchController < ApplicationController
       @jobs = @q.result.page params[:page]
     end
   end
-
-  def show
-    @job = Job.find(params[:id])
-
-    render 'jobs/job'
-  end
 end
