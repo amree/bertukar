@@ -59,7 +59,7 @@ Bertukar::Application.configure do
   config.active_support.deprecation = :notify
 
   # Devise
-  config.action_mailer.default_url_options = { :host => 'bertukar.heroku.com' }
+  config.action_mailer.default_url_options = { :host => 'bertukar.com' }
 
   # Heroku Sendgrid
   ActionMailer::Base.smtp_settings = {
