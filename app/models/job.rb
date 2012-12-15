@@ -15,7 +15,7 @@ class Job < ActiveRecord::Base
 
   validates :jawatan, presence: true, unless: "is_next_job?"
   validates :gred, presence: true, unless: "is_next_job?"
-  validates :gred, format: { with: /^[A-Z][1-54]+/ }, unless: "gred.blank?"
+  validates :gred, format: { with: /^[A-Z]+[1-54]+/ }, unless: "gred.blank?"
   validates :nama_organisasi, presence: true, unless: "is_next_job?"
 
   validate :must_have_next_job, unless: "is_next_job?"

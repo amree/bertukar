@@ -54,7 +54,9 @@ class JobTest < ActiveSupport::TestCase
 
   test "should pass with the correct gred" do
     @current.gred = "F41"
+    @current.valid?
 
+    @current.gred = "DG41"
     @current.valid?
   end
 
