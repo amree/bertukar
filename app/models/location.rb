@@ -29,7 +29,7 @@ class Location < ActiveRecord::Base
 
   def make_sure_unuse
     if jobs.length > 0
-      errors.add(:base, "Terdapat iklan yang menggunakan kementerian ini.")
+      errors.add(:base, "Terdapat iklan yang menggunakan lokasi ini.")
       false
     end
   end
