@@ -1,7 +1,7 @@
 states = Array.new
 states << { "nama" => "Wilayah Persekutuan", "districts" => ["Kuala Lumpur", "Labuan", "Putrajaya"]}
 states << { "nama" => "Johor",           "districts" => ["Johor Bahru", "Batu Pahat", "Muar", "Kluang", "Kota Tinggi", "Segamat", "Pontian", "Mersing", "Kulaijaya", "Ledang"]}
-states << { "nama" => "Kedah",           "districts" => ["Baling" ,"Bandar" ,"Baharu" ,"Kota Setar" ,"Kuala" ,"Muda" ,"Kubang" ,"Pasu" ,"Kulim" ,"Langkawi" ,"Padang" ,"Terap" ,"Pendang" ,"Pokok" ,"Sena" ,"Sik" ,"Yan"]}
+states << { "nama" => "Kedah",           "districts" => ["Baling" ,"Bandar Baharu" ,"Kota Setar" ,"Kuala Muda" ,"Kubang Pasu" ,"Kulim" ,"Langkawi" ,"Padang Terap" ,"Pendang" ,"Pokok Sena" ,"Sik" ,"Yan"]}
 states << { "nama" => "Kelantan",        "districts" => ["Kota Bharu", "Pasir Mas", "Tumpat", "Pasir Puteh", "Bachok", "Kuala Krai", "Machang", "Tanah Merah", "Jeli", "Gua", "Musang"]}
 states << { "nama" => "Melaka",          "districts" => ["Alor Gajah", "Melaka Tengah", "Jasin"]}
 states << { "nama" => "Negeri Sembilan", "districts" => ["Jelebu", "Jempol", "Kuala Pilah", "Port Dickson", "Rembau", "Seremban", "Tampin"]}
@@ -9,8 +9,8 @@ states << { "nama" => "Pahang",          "districts" => ["Bera", "Bentong", "Cam
 states << { "nama" => "Perak",           "districts" => ["Kinta", "Larut, Matang dan Selama", "Hilir Perak", "Manjung", "Batang Padang", "Kerian", "Kuala Kangsar", "Hulu Perak", "Perak Tengah", "Kampar"]}
 states << { "nama" => "Perlis",          "districts" => ["Abi", "Arau", "Beseri", "Chuping", "Jejawi", "Kayang", "Kechor", "Kuala Perlis", "Kurong Anai", "Kurong Batang", "Ngulang", "Oran", "Padang Pauh", "Paya", "Pedang Siding", "Sanglang", "Sena", "Seriab", "Sungai Adam", "Sungai Baru", "Titi Tinggi", "Utan Aji", "Wang Bintong"]}
 states << { "nama" => "Pulau Pinang",    "districts" => ["Barat Daya Pulau Pinang", "Timur Laut Pulau Pinang", "Seberang Perai Utara", "Seberang Perai Tengah", "Seberang Perai Selatan"]}
-states << { "nama" => "Sabah",           "districts" => ["Beaufort", "Keningau", "Kinabatangan", "Kota Belud", "Kota Kinabalu", "Kuala Penyu", "Kudat", "Kunak", "Labuk & Sugut", "Lahad Datu", "Papar", "Penampang", "Pensiangan", "Pitas", "Putatan", "Ranau", "Sandakan", "Semporna", "Sipitang", "Tambunan", "Tawau", "Tenom", "Tongod", "Tuaran"]}
-states << { "nama" => "Sarawak",         "districts" => ["Kapit", "Miri", "Bintulu", "Sibu", "Limbang", "Mukah", "Sri Aman", "Samarahan", "Kuching", "Sarikei", "Betong"]}
+states << { "nama" => "Sabah",           "districts" => ["Beaufort", "Beluran", "Bingkor", "Bongawan", "Donggongon", "Inanam", "Kalabakan", "Keningau", "Kimanis", "Kinabatangan", "Kinarut", "Kota Belud", "Kota Kinabalu", "Kota Marudu", "Kuala Penyu", "Kudat", "Kunak", "Kundasang", "Lahad Datu", "Membakut", "Menggatal", "Nabawan", "Papar", "Pensiangan", "Pitas", "Putatan", "Ranau", "Sandakan", "Sapulut", "Semporna", "Sepanggar", "Sindumin", "Sipitang", "Tambunan", "Tamparuli", "Tawau", "Telipok", "Telupid", "Tenom", "Tongod", "Tuaran", "Weston"]}
+states << { "nama" => "Sarawak",         "districts" => ["Asajaya", "Ba'kelalan", "Bau", "Beladin", "Belaga", "Betong", "Bintangor", "Bintulu", "Dalat", "Daro", "Debak", "Julau", "Kanowit", "Kapit", "Kota Samarahan", "Lawas", "Limbang", "Lingga", "Lubok Antu", "Lundu", "Maludam", "Matu", "Meradong", "Mukah", "Marudi", "Oya", "Pakan", "Pusa", "Saratok", "Sarikei", "Sebuyau", "Serian", "Selangau", "Sibu", "Siburan", "Simunjan", "Song", "Spaoh", "Sri Aman", "Sungai Tujuh", "Tanjung Kidurong", "Tatau", "Tebedu"]}
 states << { "nama" => "Selangor",        "districts" => ["Gombak", "Hulu Langat", "Hulu Selangor", "Klang", "Kuala Langat", "Kuala Selangor", "Sabak Bernam", "Sepang", "Petaling"]}
 states << { "nama" => "Terengganu",      "districts" => ["Kuala Terengganu", "Hulu Terengganu", "Besut", "Setiu", "Marang", "Dungun", "Kemaman"]}
 
