@@ -4,10 +4,10 @@ class SearchController < ApplicationController
   def index
     if params[:q].nil?
       @searched = false
-      @q = Job.main.search(params[:q])
+      @q = Job.main.latest.search(params[:q])
     else
       @searched = true
-      @q = Job.main.search(params[:q])
+      @q = Job.main.latest.search(params[:q])
       @jobs = @q.result.page params[:page]
     end
   end

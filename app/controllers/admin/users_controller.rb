@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
 
  # GET /admin/jobs
   def index
-    @users = User.page params[:page]
+    @users = User.latest.page params[:page]
   end
 
   # GET /admin/jobs/1

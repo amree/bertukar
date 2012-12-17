@@ -3,7 +3,7 @@ class JobsController < ApplicationController
 
   # GET /jobs
   def index
-    @jobs = current_user.jobs.main.page params[:page]
+    @jobs = current_user.jobs.main.latest.page params[:page]
   end
 
   # GET /jobs/1
