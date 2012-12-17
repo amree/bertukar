@@ -13,6 +13,7 @@ gem 'ransack', '~> 0.7.0'
 gem 'awesome_print', '~> 1.0.2'
 gem 'recaptcha', '~> 0.3.4', :require => 'recaptcha/rails'
 gem 'kaminari', '~> 0.14.1'
+gem 'sitemap_generator', '~> 3.4'
 
 # Gems used only for assets and not required
 # in production environments by default.
