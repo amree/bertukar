@@ -58,13 +58,13 @@
           %p
             %span.span3
               Nama Penuh:
-            = @job.user.full_name
+            = dash_if_nil(@job.user.full_name)
 
         - if @job.user.phone
           %p
             %span.span3
               No. Telefon:
-            = @job.user.phone
+            = dash_if_nil(@job.user.phone)
 
         %p
           %span.span3
