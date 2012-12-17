@@ -1,86 +1,111 @@
 .row-fluid
-  .row-fluid
-    .span12
-      .page-header
-        %h3
-          Penempatan Sekarang
+  .span12
+    .row-fluid
+      .span12
+        .row-fluid
+          .span12
+            .page-header
+              %h3
+                Penempatan Sekarang
 
-      %p
-        %span.span3
-          Lokasi:
-        = "#{@job.location.nama}, #{@job.location.state.nama}"
-      %p
-        %span.span3
-          Kementerian:
-        = @job.ministry.nama
-      %p
-        %span.span3
-          Nama Organisasi:
-        = @job.nama_organisasi
-      %p
-        %span.span3
-          Jawatan:
-        = @job.jawatan
-      %p
-        %span.span3
-          Gred:
-        %b
-          = @job.gred
-      %p
-        %span.span3
-          Nota:
-        = dash_if_nil(@job.nota)
+        .row-fluid
+          .span3
+            Lokasi:
+          .span9
+            = "#{@job.location.nama}, #{@job.location.state.nama}"
+        .row-fluid
+          .span3
+            Kementerian:
+          .span9
+            = @job.ministry.nama
+        .row-fluid
+          .span3
+            Nama Organisasi:
+          .span9
+            = @job.nama_organisasi
+        .row-fluid
+          .span3
+            Jawatan:
+          .span9
+            = @job.jawatan
+        .row-fluid
+          .span3
+            Gred:
+          .span9
+            %b
+              = @job.gred
+        .row-fluid
+          .span3
+            Nota:
+          .span9
+            = dash_if_nil(@job.nota)
 
-  .row-fluid
-    .span12
-      .page-header
-        %h3
-          Penempatan yang Dicari
+    .row-fluid
+      .span12
+        .row-fluid
+          .span12
+            .page-header
+              %h3
+                Penempatan Pertukaran yang Dicari
 
-      - if @job.next_jobs.length == 1
-        = "#{@job.next_jobs[0].location.nama}, #{@job.next_jobs[0].location.state.nama}"
-      - elsif @job.next_jobs.length > 1
-        %ul
-          - @job.next_jobs.each do |next_job|
-            %li
-              = "#{next_job.location.nama}, #{next_job.location.state.nama}"
-      - else
-        \-
+        .row-fluid
+          .span12
+            - if @job.next_jobs.length == 1
+              = "#{@job.next_jobs[0].location.nama}, #{@job.next_jobs[0].location.state.nama}"
+            - elsif @job.next_jobs.length > 1
+              %ul
+                - @job.next_jobs.each do |next_job|
+                  %li
+                    = "#{next_job.location.nama}, #{next_job.location.state.nama}"
+            - else
+              \-
 
-  .row-fluid
-    .span12
-      .page-header
-        %h3
-          Hubungi
+    .row-fluid
+      .span12
+        .row-fluid
+          .span12
+            .page-header
+              %h3
+                Hubungi
 
-      - if current_user
-        - if @job.user.full_name
-          %p
-            %span.span3
-              Nama Penuh:
-            = dash_if_nil(@job.user.full_name)
+        - if current_user
+          - if @job.user.full_name
+            .row-fluid
+              .span3
+                Nama Penuh:
+              .span9
+                = dash_if_nil(@job.user.full_name)
 
-        - if @job.user.phone
-          %p
-            %span.span3
-              No. Telefon:
-            = dash_if_nil(@job.user.phone)
+          - if @job.user.phone
+            .row-fluid
+              .span3
+                No. Telefon:
+              .span9
+                = dash_if_nil(@job.user.phone)
 
-        %p
-          %span.span3
-            E-Mail:
-          = @job.user.email
+          .row-fluid
+            .span3
+              E-Mail:
+            .span9
+              = @job.user.email
 
-      - else
-        Sila login atau daftar terlebih dahulu untuk melihat cara untuk menghubungi pengiklan ini.
+        - else
+          .row-fluid
+            .span12
+              Sila login atau daftar terlebih dahulu untuk melihat cara untuk menghubungi pengiklan ini.
 
-  .row-fluid
-    .span12
-      .page-header
-        %h3
-          Komen
+    .row-fluid
+      .span12
+        .row-fluid
+          .span12
+            .page-header
+              %h3
+                Komen
 
-    = render 'layouts/fb_comment'
-    %p
-      Like untuk menyebarkan tawaran ini!
-      = render 'layouts/fb_like'
+        .row-fluid
+          .span12
+            = render 'layouts/fb_comment'
+
+        .row-fluid
+          .span12
+            = render 'layouts/fb_like'
