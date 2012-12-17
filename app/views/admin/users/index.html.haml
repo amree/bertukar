@@ -15,9 +15,10 @@
             %th Updated At
             %th
         %tbody
+          - i = starting_row_number(params[:page])
           - @users.each.with_index do |user, index|
             %tr
-              %td= index + 1
+              %td= i = i + 1
               %td= user.email
               %td= user.sign_in_count
               %td= time_ago_in_words(user.created_at)
