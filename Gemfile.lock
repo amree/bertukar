@@ -201,6 +201,6 @@ DEPENDENCIES
   sitemap_generator (~> 3.4)
   spin (~> 0.5.3)
   therubyracer
-  therubyracer-heroku
+  therubyracer-heroku (~> 0.8.1.pre3)
   thin
   uglifier (>= 1.0.3)
