@@ -20,7 +20,6 @@ gem 'sitemap_generator', '~> 3.4'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-  gem 'therubyracer', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
   gem 'less-rails-bootstrap', '~> 2.2.0'
 end
@@ -35,8 +34,4 @@ group :development, :test do
   gem 'guard-spin', '~> 0.3.0'
   gem 'debugger', '~> 1.2.0'
   gem 'rb-fsevent', '~> 0.9.1'
-end
-
-group :production do
- gem 'therubyracer-heroku', '~> 0.8.1.pre3'
 end
