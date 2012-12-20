@@ -36,3 +36,7 @@ group :development, :test do
   gem 'debugger', '~> 1.2.0'
   gem 'rb-fsevent', '~> 0.9.1'
 end
+
+group :production do
+ gem 'therubyracer-heroku'
+end
