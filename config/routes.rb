@@ -15,5 +15,7 @@ Bertukar::Application.routes.draw do
     resources :users, only: [:index, :show, :destroy]
   end
 
+  match 'sitemap', :to => "sitemap#index", :as => :sitemap
+
   root :to => 'search#index'
 end
