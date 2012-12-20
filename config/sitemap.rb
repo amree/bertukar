@@ -15,6 +15,6 @@ SitemapGenerator::Sitemap.create do
   #
   add '/about'
   Job.main.find_each do |job|
-    add job.to_param, lastmod: job.updated_at
+    add "jobs/#{job.to_param}", lastmod: job.updated_at
   end
 end
