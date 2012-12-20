@@ -144,7 +144,6 @@ GEM
     rdoc (3.12)
       json (~> 1.4)
     recaptcha (0.3.4)
-    ref (1.0.2)
     sass (3.2.3)
     sass-rails (3.2.5)
       railties (~> 3.2.0)
@@ -200,6 +199,6 @@ DEPENDENCIES
   sass-rails (~> 3.2.3)
   sitemap_generator (~> 3.4)
   spin (~> 0.5.3)
-  therubyracer
+  therubyracer (= 0.10.2)
   thin
   uglifier (>= 1.0.3)
