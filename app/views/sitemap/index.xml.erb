@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <% @pages_to_visit.each do |page| %>
+    <url>
+      <loc><%= "http://bertukar.com#{page[:url]}" %></loc>
+      <% if page[:updated_at].present? %>
+        <lastmod><%= page[:updated_at] %></lastmod>
+      <% end %>
+      <changefreq>daily</changefreq>
+      <priority>0.5</priority>
+    </url>
+  <% end %>
+</urlset>
