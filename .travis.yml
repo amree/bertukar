@@ -1,5 +1,7 @@
 language: ruby
 rvm:
   - "1.9.3"
-# uncomment this line if your project needs to run something other than `rake`:
-# script: bundle exec rspec spec
+before_script:
+  - "mysql -e 'create database bertukar_test;'"
+notifications:
+  email: false
