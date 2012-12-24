@@ -1,12 +1,21 @@
 !!! 5
 %html{ lang: "en" }
   %head
-    %title Bertukar
+    %title
+      Bertukar
+      - unless "#{yield :title}".blank?
+        = "- #{yield :title}"
+
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
     = csrf_meta_tags
+
+    - if controller_name == "jobs" && action_name == "show"
+      %meta{name: "description", content: "#{yield :description} "}
+
     - unless current_user.try(:admin?)
       = render 'layouts/ga' if Rails.env.production?
+
     %meta{:property => 'fb:app_id', :content => '331360483631162'}/
     %meta{:name => 'msvalidate.01', :content => '253AE5B883B8A53B17FBFEADA8E63D6E'}/
 
