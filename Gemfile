@@ -1,7 +1,7 @@
 source 'http://rubygems.org'
 
 ruby '1.9.3'
-gem 'rails', '3.2.8'
+gem 'rails', '3.2.9'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.11'
 gem 'haml-rails', '~> 0.3.4'
