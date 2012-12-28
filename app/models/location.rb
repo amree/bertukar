@@ -18,6 +18,10 @@ class Location < ActiveRecord::Base
 
   attr_accessible :state_id, :nama
 
+  def to_param
+    "#{id}-#{nama}".downcase.gsub(/[^[:alnum:]]/, '-')
+  end
+
   protected
 
   def check_districts

@@ -35,4 +35,8 @@ class LocationTest < ActiveSupport::TestCase
       @kota_bharu.destroy
     end
   end
+
+  test "should generate the correct friendly url" do
+    assert_equal @kota_bharu.to_param, "#{@kota_bharu.id}-kota-bharu"
+  end
 end

@@ -16,6 +16,7 @@ Bertukar::Application.routes.draw do
   end
 
   match 'sitemap', :to => "sitemap#index", :as => :sitemap
+  match 'listings/states/:id' => "listings#states", :as => :listings_states
 
   root :to => 'search#index'
 end

@@ -10,56 +10,6 @@
   = render 'search/search_box'
 - else
   = render 'search/search_box'
-  .row-fluid
-    .span12
-    - unless @jobs.blank?
-      %table.table.table-striped
-        %thead
-          %tr
-            %th #
-            %th Sekarang
-            %th Dicari
-            %th Gred
-            %th Waktu Iklan
-            %th
-        %tbody
-          - i = starting_row_number(params[:page])
-          - @jobs.each.with_index do |job, index|
-            %tr
-              %td= i = i + 1
-              %td
-                = "#{job.location.nama}, #{job.location.state.nama}"
-              %td
-                - if job.next_jobs.length == 1
-                  = "#{job.next_jobs[0].location.nama}, #{job.next_jobs[0].location.state.nama}"
-                - elsif job.next_jobs.length > 1
-                  %ul
-                    - job.next_jobs.each do |next_job|
-                      %li
-                        = "#{next_job.location.nama}, #{next_job.location.state.nama}"
-                - else
-                  \-
+  = render 'jobs/list', jobs: @jobs
 
-              %td= job.gred
-              %td
-                = time_ago_in_words(job.created_at)
-                ago
-              %td.right
-                = link_to job, class: "btn btn-small" do
-                  %i.icon-eye-open
-
-      = paginate @jobs
-
-    - else
-      - if @searched
-        Tiada iklan untuk carian ini.
-
-
-.row-fluid.center
-  %p
-    &nbsp;
-  %small
-    %ul.inline
-      - Location.states.all.each do |state|
-        %li
-          = link_to state.nama, search_index_path(location: state.id)
+= render 'listings/states_list'

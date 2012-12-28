@@ -1,0 +1,8 @@
+.row-fluid.center
+  %p
+    &nbsp;
+  %small
+    %ul.inline
+      - Location.states.all.each do |state|
+        %li
+          = link_to state.nama, listings_states_path(id: state.to_param)
