@@ -1,7 +1,7 @@
 .row-fluid
   .align-center.well
     #searchbox
-      = search_form_for @q, url: search_index_path, html: { method: :get, class: "form-inline" } do |f|
-        = f.text_field :gred_eq, class: "span1", placeholder: "F41"
-        = f.collection_select :location_id_or_location_state_id_eq, Location.states, :id, :nama, { include_blank: true }
-        = f.submit "Buat Carian", class: "btn btn-primary"
+      = form_tag search_index_path, method: :get, class: "form-inline" do |f|
+        = text_field_tag :gred, params[:gred], class: "span1", placeholder: "F41"
+        = select_tag :location, options_from_collection_for_select(Location.states.all, :id, :nama, params[:location]), include_blank: true
+        = submit_tag "Buat Carian", class: "btn btn-primary"

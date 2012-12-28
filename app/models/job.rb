@@ -56,6 +56,16 @@ class Job < ActiveRecord::Base
     end
   end
 
+  def self.search(params)
+    if params[:location].blank?
+      where('gred LIKE ?', "%#{params[:gred]}%")
+    else
+      joins(location: :state)
+      .where('gred LIKE ?', "%#{params[:gred]}%")
+      .where('states_locations.id = ?', params[:location])
+    end
+  end
+
   protected
 
   def populate_fields
