@@ -9,7 +9,7 @@ gem 'auto_strip_attributes', '~> 2.0.2'
 gem 'devise', '~> 2.1.2'
 gem 'thin'
 gem 'nested_form', '~> 0.3.0'
-gem 'awesome_print', '~> 1.0.2'
+gem 'awesome_print'
 gem 'recaptcha', '~> 0.3.4', :require => 'recaptcha/rails'
 gem 'kaminari', '~> 0.14.1'
 
@@ -25,7 +25,7 @@ group :assets do
 end
 
 group :development do
-  gem 'hirb', '~> 0.6.0'
+  gem 'hirb'
   gem 'debugger', '~> 1.2.0'
 end
 
