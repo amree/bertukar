@@ -6,8 +6,12 @@
       <% if page[:updated_at].present? %>
         <lastmod><%= page[:updated_at] %></lastmod>
       <% end %>
-      <changefreq>daily</changefreq>
-      <priority>0.5</priority>
+      <changefreq>
+        <%= page[:changefreq] || "daily" %>
+      </changefreq>
+      <priority>
+        <%= page[:priority] || "0.5" %>
+      </priority>
     </url>
   <% end %>
 </urlset>
