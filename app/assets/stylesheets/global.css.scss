@@ -39,6 +39,10 @@ td.right {
   text-align: right;
 }
 
+.center {
+  text-align: center;
+}
+
 /* Custom container */
 .container-narrow {
   margin: 0 auto;
@@ -74,4 +78,18 @@ h3 a {
 
 h3 a:hover {
   text-decoration: none;
+}
+
+/* 2.2.2 */
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none;
+}
+
+ul.inline > li,
+ol.inline > li {
+  display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
 }
