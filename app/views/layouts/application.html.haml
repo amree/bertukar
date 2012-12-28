@@ -2,9 +2,9 @@
 %html{ lang: "en" }
   %head
     %title
-      Bertukar
       - unless "#{yield :title}".blank?
-        = "- #{yield :title}"
+        = "#{yield :title} - "
+      Pertukaran Suka Sama Suka
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
