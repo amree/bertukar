@@ -8,7 +8,6 @@
           %th Sekarang
           %th Dicari
           %th Gred
-          %th Waktu Iklan
           %th
       %tbody
         - i = starting_row_number(params[:page])
@@ -29,9 +28,6 @@
                 \-
 
             %td= job.gred
-            %td
-              = time_ago_in_words(job.created_at)
-              ago
             %td.right
               = link_to "Lihat", job, class: "btn btn-small"
 
