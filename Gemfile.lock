@@ -188,7 +188,7 @@ DEPENDENCIES
   rails (= 3.2.11)
   rb-fsevent (~> 0.9.1)
   recaptcha (~> 0.3.4)
-  sass-rails (~> 3.2.3)
+  sass-rails (~> 3.2.6)
   spin (~> 0.5.3)
   therubyracer (= 0.10.2)
   thin
