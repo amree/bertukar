@@ -20,7 +20,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'therubyracer', '0.10.2', :platforms => :ruby
   gem 'uglifier', '>= 1.0.3'
-  gem 'less-rails-bootstrap', '~> 2.2.0'
+  gem 'less-rails-bootstrap', '~> 2.2.1'
 end
 
 group :development do

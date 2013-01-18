@@ -182,7 +182,7 @@ DEPENDENCIES
   hirb
   jquery-rails
   kaminari (~> 0.14.1)
-  less-rails-bootstrap (~> 2.2.0)
+  less-rails-bootstrap (~> 2.2.1)
   mysql2 (~> 0.3.11)
   nested_form (~> 0.3.0)
   rails (= 3.2.11)
