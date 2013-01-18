@@ -1,3 +1,23 @@
+- if current_user.full_name.blank? || current_user.phone.blank?
+  .alert.alert-block.alert-info.fade.in
+    %button.close{ type: "button", :"data-dismiss" => "alert" } ×
+    %h4.alert-heading
+      Tips
+    %p
+      Anda digalakkan mengisi
+      %strong
+        nama penuh
+      dan
+      %strong
+        nombor telefon
+      bagi memudahkan lagi penjawat awam yang lain menghubungi anda.
+      Adakah anda mahu mengisi maklumat itu sekarang?
+      %p
+      %small
+        Maklumat tersebut hanya akan dipaparkan kepada pengguna berdaftar sahaja.
+    %p
+      = link_to "Isi sekarang", edit_user_registration_path, class: "btn"
+
 .page-header
   %h1
     Iklan Baru
