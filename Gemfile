@@ -25,12 +25,11 @@ end
 
 group :development do
   gem 'hirb'
-  gem 'debugger', '~> 1.2.0'
 end
 
 group :development, :test do
   gem 'spin', '~> 0.5.3'
   gem 'guard-spin', '~> 0.3.0'
-  gem 'debugger', '~> 1.2.0'
+  gem 'debugger', '~> 1.2.4'
   gem 'rb-fsevent', '~> 0.9.1'
 end
