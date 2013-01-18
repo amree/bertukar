@@ -41,6 +41,12 @@
             Nota:
           .span9
             = dash_if_nil(@job.nota)
+        .row-fluid
+          .span3
+            Masa Iklan:
+          .span9
+            = time_ago_in_words(@job.updated_at)
+            ago
 
     .row-fluid
       .span12
