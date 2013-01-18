@@ -54,11 +54,17 @@ class JobTest < ActiveSupport::TestCase
 
   test "should pass with the correct gred" do
     @current.gred = "F41"
-    @current.valid?
+    assert @current.valid?
 
     @current.gred = "DG41"
-    @current.valid?
+    assert @current.valid?
   end
+
+  test "should fail with incorrect gred" do
+    @current.gred = "N17 Jumud"
+    assert @current.invalid?
+  end
+
 
   test "should fail without nama_organisasi" do
     @current.nama_organisasi = ""
