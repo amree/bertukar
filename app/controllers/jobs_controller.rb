@@ -17,11 +17,13 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     @job.next_jobs.build
+    @states = Location.states
   end
 
   # GET /jobs/1/edit
   def edit
     @job = current_user.jobs.find(params[:id])
+    @states = Location.states
   end
 
   # POST /jobs

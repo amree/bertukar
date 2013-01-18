@@ -29,6 +29,7 @@ class JobsControllerTest < ActionController::TestCase
     get :new
 
     assert assigns(:job).new_record?
+    assert assigns(:states)
   end
 
   test "POST create new job" do
@@ -46,6 +47,7 @@ class JobsControllerTest < ActionController::TestCase
     get :edit, id: @current.to_param
 
     assert_equal assigns(:job), @current
+    assert assigns(:states)
   end
 
   test "POST assigns a new created" do

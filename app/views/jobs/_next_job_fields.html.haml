@@ -2,5 +2,5 @@
   .control-group
     = label_tag nil, "Lokasi", class: "control-label"
     .controls
-      = render 'location_fields', f: i, state: @job.next_jobs[index].get_state, location: @job.next_jobs[index].get_state
+      = render 'location_fields', { f: i, states: states, state: @job.next_jobs[index].get_state, location: @job.next_jobs[index].get_state }
       = i.link_to_remove "Padam", class: "btn btn-danger"

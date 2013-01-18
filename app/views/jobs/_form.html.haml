@@ -12,7 +12,7 @@
     = normal_div_if @job.errors[:location_id].empty? do
       = f.label :location_id, "Lokasi Sekarang", class: "control-label"
       .controls
-        = render 'location_fields', f: f, state: @job.get_state, location: @job.location_id
+        = render 'location_fields', { f: f, state: @job.get_state, location: @job.location_id, states: @states }
         %span.help-inline
           = @job.errors[:location_id].join(", ")
 
@@ -57,7 +57,7 @@
         Pilihan Penempatan Baru
       %br
       - @job.next_jobs.each.with_index do |next_job, index|
-        = render partial: 'next_job_fields', locals: { index: index, next_job: next_job, f: f }
+        = render partial: 'next_job_fields', locals: { f: f, index: index, next_job: next_job, states: @states }
       = f.link_to_add "Add a next job", :next_jobs
       .control-group
         .control-label
