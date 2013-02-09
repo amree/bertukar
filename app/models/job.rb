@@ -94,7 +94,7 @@ class Job < ActiveRecord::Base
   end
 
   def location_must_not_be_state
-    if Location.find_by_id(self.location_id).state_id.nil?
+    if Location.find_by_id(self.location_id).try(:state).nil?
       errors.add(:base, "must not be a state")
     end
   end
