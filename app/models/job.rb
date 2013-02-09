@@ -20,6 +20,7 @@ class Job < ActiveRecord::Base
   validates :nama_organisasi, presence: true, unless: "is_next_job?"
 
   validate :must_have_next_job, unless: "is_next_job?"
+  validate :location_must_not_be_state, unless: "location_id.blank?"
 
   before_validation :populate_fields
   before_validation :ensure_no_duplicated_locations
@@ -89,6 +90,12 @@ class Job < ActiveRecord::Base
   def must_have_next_job
     if self.next_jobs.blank?
       errors.add(:base, "must choose new job placement for job exchange")
+    end
+  end
+
+  def location_must_not_be_state
+    if Location.find_by_id(self.location_id).state_id.nil?
+      errors.add(:base, "must not be a state")
     end
   end
 end

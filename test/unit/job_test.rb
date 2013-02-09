@@ -52,6 +52,12 @@ class JobTest < ActiveSupport::TestCase
     assert @current.invalid?
   end
 
+  test "should fail with state as the location" do
+    @current.location_id = @current.location.state.id
+
+    assert @current.invalid?
+  end
+
   test "should pass with the correct gred" do
     @current.gred = "N17"
     assert @current.valid?
