@@ -30,6 +30,6 @@ end
 group :development, :test do
   gem 'spin', '~> 0.5.3'
   gem 'guard-spin', '~> 0.3.0'
-  gem 'debugger', '~> 1.2.4'
+  gem 'debugger', '~> 1.3.1'
   gem 'rb-fsevent', '~> 0.9.1'
 end
