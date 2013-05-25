@@ -7,3 +7,4 @@ config/database.yml
 .routes/*
 public/sitemap*
 .tags
+config/config.yml
