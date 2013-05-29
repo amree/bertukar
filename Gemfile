@@ -28,9 +28,6 @@ group :development do
 end
 
 group :development, :test do
-  gem 'spin', '~> 0.5.3'
-  gem 'guard-spin', '~> 0.3.0'
-  gem 'debugger', '~> 1.3.1'
-  gem 'rb-fsevent', '~> 0.9.1'
   gem 'coveralls', require: false
+  gem 'debugger', '~> 1.6.0'
 end
