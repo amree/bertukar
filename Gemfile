@@ -32,4 +32,5 @@ group :development, :test do
   gem 'guard-spin', '~> 0.3.0'
   gem 'debugger', '~> 1.3.1'
   gem 'rb-fsevent', '~> 0.9.1'
+  gem 'coveralls', require: false
 end
