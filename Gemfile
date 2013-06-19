@@ -30,4 +30,5 @@ end
 group :development, :test do
   gem 'coveralls', require: false
   gem 'debugger', '~> 1.6.0'
+  gem 'capybara-webkit', '~> 1.0.0'
 end
