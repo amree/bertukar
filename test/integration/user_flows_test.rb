@@ -11,13 +11,10 @@ class UserFlowsTest < ActionDispatch::IntegrationTest
 
   test "Login and browse site" do
     visit '/users/sign_in'
-    fill_in 'Email', with: 'aurorius@gmail.com'
-    fill_in 'Kata Laluan', with: 'aurorius@gmail.com'
+    fill_in 'Email', with: 'user@email.com'
+    fill_in 'Kata Laluan', with: 'password'
     click_button 'Login'
 
-    debugger
-
-    # assert page.has_content? 'Signed in successfully.'
-    assert page.has_content?('Invalid email or password.')
+    assert page.has_content? 'Signed in successfully.'
   end
 end
