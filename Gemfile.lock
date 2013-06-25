@@ -28,6 +28,10 @@ GEM
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    airbrake (3.1.12)
+      activesupport
+      builder
+      json
     arel (3.0.2)
     auto_strip_attributes (2.0.2)
       activerecord (>= 3.0)
@@ -179,6 +183,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  airbrake (~> 3.1.12)
   auto_strip_attributes (~> 2.0.2)
   awesome_print
   capybara-webkit (~> 1.0.0)
