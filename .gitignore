@@ -9,4 +9,3 @@ public/sitemap*
 .tags
 config/config.yml
 coverage/
-config/initializers/errbit.rb
