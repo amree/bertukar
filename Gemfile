@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 ruby '1.9.3'
+
 gem 'rails', '3.2.13'
 gem 'jquery-rails'
 gem 'mysql2', '~> 0.3.11'
@@ -12,6 +13,7 @@ gem 'nested_form', '~> 0.3.2'
 gem 'awesome_print'
 gem 'recaptcha', '~> 0.3.5', :require => 'recaptcha/rails'
 gem 'kaminari', '~> 0.14.1'
+gem 'airbrake', '~> 3.1.12'
 
 # Gems used only for assets and not required
 # in production environments by default.
