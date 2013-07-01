@@ -36,6 +36,8 @@ class JobsController < ApplicationController
       if @job.next_jobs.length == 0
         @job.next_jobs.build
       end
+
+      @states = Location.states
       render action: "new"
     end
   end
