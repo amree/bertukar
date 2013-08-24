@@ -16,6 +16,7 @@
     - unless current_user.try(:admin?)
       = render 'layouts/ga' if Rails.env.production?
 
+    %meta{:property => 'fb:app_id', :content => '331360483631162'}/
     %meta{:name => 'msvalidate.01', :content => '253AE5B883B8A53B17FBFEADA8E63D6E'}/
 
   %body
