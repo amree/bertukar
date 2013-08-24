@@ -31,14 +31,6 @@ $ ->
     setupLoc()
     return false
 
-  # Facebook Hooks
-  if typeof(FB) isnt 'undefined' && FB?
-    FB.Event.subscribe "edge.create", (response) ->
-      console.log "Liked!"
-
-    FB.Event.subscribe "comment.create", (response) ->
-      console.log "Commented!"
-
   # # Show/hide based on job's type
   # $("#job_is_exchange").change ->
   #   toggleNextJobs(this)
