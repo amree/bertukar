@@ -9,9 +9,21 @@ $(document).ready(function() {
     });
 
     // Additional initialization code such as adding Event Listeners goes her
+    FB.Event.subscribe('edge.create',
+      function(response) {
+        console.log("Liked " + response);
+      }
+    );
+
     FB.Event.subscribe('comment.create',
       function(response) {
         console.log("Commented " + response);
+      }
+    );
+
+    FB.Event.subscribe('comment.remove',
+      function(response) {
+        console.log("Comment removed " + response);
       }
     );
   };
