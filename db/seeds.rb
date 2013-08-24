@@ -2,7 +2,7 @@ states = Array.new
 states << { "nama" => "Wilayah Persekutuan", "districts" => ["Kuala Lumpur", "Labuan", "Putrajaya"]}
 states << { "nama" => "Johor",           "districts" => ["Johor Bahru", "Batu Pahat", "Muar", "Kluang", "Kota Tinggi", "Segamat", "Pontian", "Mersing", "Kulaijaya", "Ledang"]}
 states << { "nama" => "Kedah",           "districts" => ["Baling" ,"Bandar Baharu" ,"Kota Setar" ,"Kuala Muda" ,"Kubang Pasu" ,"Kulim" ,"Langkawi" ,"Padang Terap" ,"Pendang" ,"Pokok Sena" ,"Sik" ,"Yan"]}
-states << { "nama" => "Kelantan",        "districts" => ["Kota Bharu", "Pasir Mas", "Tumpat", "Pasir Puteh", "Bachok", "Kuala Krai", "Machang", "Tanah Merah", "Jeli", "Gua", "Musang"]}
+states << { "nama" => "Kelantan",        "districts" => ["Kota Bharu", "Pasir Mas", "Tumpat", "Pasir Puteh", "Bachok", "Kuala Krai", "Machang", "Tanah Merah", "Jeli", "Gua Musang", "Dabong"]}
 states << { "nama" => "Melaka",          "districts" => ["Alor Gajah", "Melaka Tengah", "Jasin"]}
 states << { "nama" => "Negeri Sembilan", "districts" => ["Jelebu", "Jempol", "Kuala Pilah", "Port Dickson", "Rembau", "Seremban", "Tampin"]}
 states << { "nama" => "Pahang",          "districts" => ["Bera", "Bentong", "Cameron Highlands", "Jerantut", "Kuantan", "Lipis", "Maran", "Pekan", "Raub", "Rompin", "Temerloh"]}
